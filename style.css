@@ -97,8 +97,9 @@ nav {
 
 .nav-right {
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .logo {
@@ -127,21 +128,21 @@ nav ul li a:hover {
 
 .lang-toggle {
     background: none;
-    border: 1px solid var(--border);
-    color: var(--text-muted);
+    border: 1px solid var(--primary);
+    color: var(--primary);
     font-family: inherit;
     font-size: 0.85rem;
     font-weight: 600;
-    padding: 0.35rem 0.75rem;
-    border-radius: 50px;
+    padding: 0.45rem 0.9rem;
+    border-radius: 8px;
     cursor: pointer;
+    flex-shrink: 0;
     transition: all 0.3s ease;
 }
 
 .lang-toggle:hover {
-    border-color: var(--primary);
-    color: var(--primary);
     background: var(--primary-soft);
+    transform: translateY(-1px);
 }
 
 /* ===== HERO ===== */
@@ -508,6 +509,7 @@ section.visible {
 .menu-btn {
     display: none;
     flex-direction: column;
+    flex-shrink: 0;
     gap: 5px;
     background: none;
     border: none;
