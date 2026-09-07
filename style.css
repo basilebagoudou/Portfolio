@@ -23,20 +23,13 @@ html {
 body {
     background-color: var(--bg);
     color: var(--text-main);
-    /* Les polices exactes de Claude (Styrene / Tiempos) sont des polices
-       commerciales sous licence Anthropic, pas embarquables librement ici.
-       Poppins (géométrique, même esprit que Century Gothic/Styrene) pour les
-       titres/UI, Source Serif 4 (éditoriale, même registre que Tiempos) pour
-       le corps de texte — même logique de pairage sans/serif que le site de
-       Claude, avec des polices Google Fonts libres. */
-    font-family: 'Source Serif 4', Georgia, serif;
+    /* Century Gothic est une police commerciale (Monotype), non
+       embarquable ici sans licence. 'Century Gothic' en tête profite de
+       l'installation native (très répandue sous Windows/macOS) ; Jost,
+       une police Google Fonts libre, est quasi identique visuellement et
+       sert de repli fidèle pour les autres systèmes. */
+    font-family: 'Century Gothic', CenturyGothic, 'Jost', sans-serif;
     line-height: 1.6;
-}
-
-h1, h2, h3, .logo, nav ul li a, .btn-primary, .btn-secondary,
-.project-btn, .skill-card, .project-tag, .project-tech span,
-.hero-salut, .about-info ul li span {
-    font-family: 'Poppins', 'Century Gothic', sans-serif;
 }
 
 a {
