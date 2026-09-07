@@ -47,13 +47,20 @@ document.querySelectorAll('nav ul li a').forEach(function(link) {
 // Chaque élément traduit existe en double dans le HTML
 // (<... data-lang="fr">/<... data-lang="en" hidden>) : on affiche une
 // langue en basculant l'attribut "hidden", et on mémorise le choix pour
-// les visites suivantes.
-const langToggle = document.querySelector('.lang-toggle');
+// les visites suivantes. Le sélecteur lui-même est un switch à deux options
+// (FR / EN) toujours visibles, l'option active étant surlignée — comme une
+// case à cocher à deux états plutôt qu'un simple bouton qui bascule.
+const boutonsLangue = document.querySelectorAll('.lang-option');
 const CLE_LANGUE = 'langue-portfolio';
 
 function appliquerLangue(langue) {
     document.querySelectorAll('[data-lang]').forEach(function(el) {
         el.hidden = el.dataset.lang !== langue;
+    });
+    boutonsLangue.forEach(function(bouton) {
+        const estActif = bouton.dataset.langBtn === langue;
+        bouton.classList.toggle('active', estActif);
+        bouton.setAttribute('aria-pressed', estActif);
     });
     document.documentElement.lang = langue;
     localStorage.setItem(CLE_LANGUE, langue);
@@ -62,7 +69,8 @@ function appliquerLangue(langue) {
 const langueSauvegardee = localStorage.getItem(CLE_LANGUE) || 'fr';
 appliquerLangue(langueSauvegardee);
 
-langToggle.addEventListener('click', function() {
-    const langueActuelle = document.documentElement.lang === 'en' ? 'en' : 'fr';
-    appliquerLangue(langueActuelle === 'fr' ? 'en' : 'fr');
+boutonsLangue.forEach(function(bouton) {
+    bouton.addEventListener('click', function() {
+        appliquerLangue(bouton.dataset.langBtn);
+    });
 });

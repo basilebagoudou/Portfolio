@@ -127,22 +127,40 @@ nav ul li a:hover {
 }
 
 .lang-toggle {
-    background: none;
-    border: 1px solid var(--primary);
-    color: var(--primary);
-    font-family: inherit;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: 0.45rem 0.9rem;
+    display: flex;
+    align-items: center;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
     border-radius: 8px;
-    cursor: pointer;
+    padding: 3px;
+    gap: 2px;
     flex-shrink: 0;
+}
+
+.lang-option {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.lang-toggle:hover {
-    background: var(--primary-soft);
-    transform: translateY(-1px);
+.lang-option:hover {
+    color: var(--primary);
+}
+
+.lang-option.active {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.lang-option.active:hover {
+    color: #ffffff;
 }
 
 /* ===== HERO ===== */
