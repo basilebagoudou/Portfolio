@@ -19,50 +19,71 @@
                 <span></span>
             </button>
             <ul>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#projects">Projets</a></li>
+                <li><a href="#about"><span data-lang="fr">À propos</span><span data-lang="en" hidden>About</span></a></li>
+                <li><a href="#skills"><span data-lang="fr">Compétences</span><span data-lang="en" hidden>Skills</span></a></li>
+                <li><a href="#projects"><span data-lang="fr">Projets</span><span data-lang="en" hidden>Projects</span></a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button type="button" class="lang-toggle" aria-label="Changer de langue / Switch language">
+                    <span data-lang="fr">EN</span><span data-lang="en" hidden>FR</span>
+                </button></li>
             </ul>
         </nav>
     </header>
     <section id="hero">
         <div class="hero-content">
-            <p class="hero-salut">Salut, moi c'est</p>
+            <p class="hero-salut"><span data-lang="fr">Salut, moi c'est</span><span data-lang="en" hidden>Hi, I'm</span></p>
             <h1>Basile BAGOUDOU</h1>
-            <h2>Étudiant en Génie Logiciel et Système d'information</h2>
-            <p class="hero-desc">
+            <h2>
+                <span data-lang="fr">Étudiant en Génie Logiciel et Système d'information</span>
+                <span data-lang="en" hidden>Software Engineering & Information Systems Student</span>
+            </h2>
+            <p class="hero-desc" data-lang="fr">
                 Passionné par le développement logiciel, la cybersécurité
                 et l'intelligence artificielle. Je conçois et déploie des
                 applications complètes, du back-end à la mise en production.
                 À la recherche d'un stage pour mai 2027.
             </p>
+            <p class="hero-desc" data-lang="en" hidden>
+                Passionate about software development, cybersecurity, and
+                artificial intelligence. I design and deploy complete
+                applications, from the back-end to production. Looking for
+                an internship for May 2027.
+            </p>
             <div class="hero-buttons">
-                <a href="#projects" class="btn-primary">Voir mes projets</a>
-                <a href="#contact" class="btn-secondary">Me contacter</a>
+                <a href="#projects" class="btn-primary"><span data-lang="fr">Voir mes projets</span><span data-lang="en" hidden>View my projects</span></a>
+                <a href="#contact" class="btn-secondary"><span data-lang="fr">Me contacter</span><span data-lang="en" hidden>Contact me</span></a>
             </div>
         </div>
     </section>
     <section id="about">
         <div class="container">
-            <h2 class="section-title">A propos de moi</h2>
+            <h2 class="section-title">
+                <span data-lang="fr">A propos de moi</span>
+                <span data-lang="en" hidden>About Me</span>
+            </h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>
+                    <p data-lang="fr">
                         Étudiant en Licence 2 à l'IAI Togo, passionné par le développement logiciel et les technologies numériques. J'aime créer des solutions concrètes à des problèmes réels — de la conception de la base de données jusqu'au déploiement en production.
                     </p>
-                    <p>
+                    <p data-lang="en" hidden>
+                        2nd-year Computer Science student at IAI Togo, passionate about software development and digital technologies. I enjoy building real solutions to real problems — from database design to production deployment.
+                    </p>
+                    <p data-lang="fr">
                         J'ai réalisé un stage au <strong>CENETI</strong>, où j'ai conçu et développé une plateforme Laravel complète (site vitrine et back-office sécurisé). <strong>À la recherche d'un stage pour mai 2027</strong> pour continuer à progresser sur des projets concrets.
+                    </p>
+                    <p data-lang="en" hidden>
+                        I completed an internship at <strong>CENETI</strong>, where I designed and built a complete Laravel platform (public site and secured back-office). <strong>Looking for an internship for May 2027</strong> to keep growing on real projects.
                     </p>
                 </div>
                 <div class="about-info">
                     <ul>
-                        <li><span>Nom</span> Basile Bagoudou</li>
-                        <li><span>Formation</span> L2 Informatique</li>
-                        <li><span>Université</span> Institut Africain d'informatique</li>
-                        <li><span>Dernier stage</span> CENETI (Togo)</li>
-                        <li><span>Email</span> basile2bagoudou@gmail.com</li>
-                        <li><span>Disponible</span> À partir de Mai 2027</li>
+                        <li><span class="info-label" data-lang="fr">Nom</span><span class="info-label" data-lang="en" hidden>Name</span> Basile Bagoudou</li>
+                        <li><span class="info-label" data-lang="fr">Formation</span><span class="info-label" data-lang="en" hidden>Education</span> <span data-lang="fr">L2 Informatique</span><span data-lang="en" hidden>2nd-year Computer Science</span></li>
+                        <li><span class="info-label" data-lang="fr">Université</span><span class="info-label" data-lang="en" hidden>University</span> <span data-lang="fr">Institut Africain d'informatique</span><span data-lang="en" hidden>African Institute of Computer Science (IAI)</span></li>
+                        <li><span class="info-label" data-lang="fr">Dernier stage</span><span class="info-label" data-lang="en" hidden>Last internship</span> CENETI (Togo)</li>
+                        <li><span class="info-label">Email</span> basile2bagoudou@gmail.com</li>
+                        <li><span class="info-label" data-lang="fr">Disponible</span><span class="info-label" data-lang="en" hidden>Available</span> <span data-lang="fr">Immédiatement</span><span data-lang="en" hidden>Immediately</span></li>
                     </ul>
                 </div>
             </div>
@@ -70,51 +91,45 @@
     </section>
     <section id="skills">
     <div class="container">
-        <h2 class="section-title">Compétences</h2>
+        <h2 class="section-title">
+            <span data-lang="fr">Compétences</span>
+            <span data-lang="en" hidden>Skills</span>
+        </h2>
         <div class="skills-content">
 
             <div class="skills-category">
-                <h3>Langages</h3>
+                <h3 data-lang="fr">Langages</h3>
+                <h3 data-lang="en" hidden>Languages</h3>
                 <div class="skills-grid">
-                    <div class="skill-card">Java</div>
-                    <div class="skill-card">Python</div>
-                    <div class="skill-card">C</div>
                     <div class="skill-card">PHP</div>
                     <div class="skill-card">JavaScript</div>
-                    <div class="skill-card">Dart</div>
-                    <div class="skill-card">XML</div>
                 </div>
             </div>
 
             <div class="skills-category">
-                <h3>Web & Frameworks</h3>
+                <h3>Web</h3>
                 <div class="skills-grid">
                     <div class="skill-card">HTML</div>
                     <div class="skill-card">CSS</div>
-                    <div class="skill-card">Flutter</div>
-                    <div class="skill-card">JavaSwing</div>
                 </div>
             </div>
 
             <div class="skills-category">
-                <h3>Bases de données</h3>
+                <h3 data-lang="fr">Bases de données</h3>
+                <h3 data-lang="en" hidden>Databases</h3>
                 <div class="skills-grid">
                     <div class="skill-card">MySQL</div>
                     <div class="skill-card">PostgreSQL</div>
-                    <div class="skill-card">Oracle</div>
                 </div>
             </div>
 
             <div class="skills-category">
-                <h3>Outils</h3>
+                <h3 data-lang="fr">Outils</h3>
+                <h3 data-lang="en" hidden>Tools</h3>
                 <div class="skills-grid">
                     <div class="skill-card">Git</div>
                     <div class="skill-card">GitHub</div>
                     <div class="skill-card">VS Code</div>
-                    <div class="skill-card">IntelliJ</div>
-                    <div class="skill-card">Microsoft Office</div>
-                    <div class="skill-card">Netbeans</div>
-                    <div class="skill-card">Android Studio</div>
                     <div class="skill-card">Linux</div>
                 </div>
             </div>
@@ -123,20 +138,30 @@
 </section>
 <section id="projects">
     <div class="container">
-        <h2 class="section-title">Mes Projets</h2>
+        <h2 class="section-title">
+            <span data-lang="fr">Mes Projets</span>
+            <span data-lang="en" hidden>My Projects</span>
+        </h2>
         <div class="projects-grid">
 
             <div class="project-card">
                 <div class="project-header">
                     <h3>Plateforme CENETI</h3>
-                    <span class="project-tag">Stage</span>
+                    <span class="project-tag" data-lang="fr">Stage</span>
+                    <span class="project-tag" data-lang="en" hidden>Internship</span>
                 </div>
-                <p class="project-desc">
+                <p class="project-desc" data-lang="fr">
                     Plateforme web complète pour le CENETI (Togo) : site
                     vitrine public et back-office sécurisé multi-rôles
                     (gestion des campagnes, candidatures, messagerie interne).
                     Conçue et déployée de bout en bout, du schéma de base de
                     données au déploiement en production.
+                </p>
+                <p class="project-desc" data-lang="en" hidden>
+                    Complete web platform for CENETI (Togo): public site and
+                    a role-based secured back-office (campaign management,
+                    applications, internal messaging). Designed and deployed
+                    end-to-end, from database schema to production.
                 </p>
                 <div class="project-tech">
                     <span>Laravel</span>
@@ -145,7 +170,9 @@
                     <span>Docker</span>
                 </div>
                 <div class="project-links">
-                    <a href="https://ceneti-production.up.railway.app" target="_blank" class="project-btn">Voir le site</a>
+                    <a href="https://ceneti-production.up.railway.app" target="_blank" class="project-btn">
+                        <span data-lang="fr">Voir le site</span><span data-lang="en" hidden>View site</span>
+                    </a>
                 </div>
             </div>
 
@@ -154,11 +181,15 @@
                     <h3>Optima</h3>
                     <span class="project-tag">Desktop</span>
                 </div>
-                <p class="project-desc">
+                <p class="project-desc" data-lang="fr">
                     Application desktop pour partager la connexion mobile
                     d'un téléphone en Wi-Fi depuis un PC Linux, en
                     contournant la détection de partage de connexion
                     (« tethering ») des opérateurs.
+                </p>
+                <p class="project-desc" data-lang="en" hidden>
+                    Desktop app to share a phone's mobile data as Wi-Fi from
+                    a Linux PC, bypassing carrier tethering detection.
                 </p>
                 <div class="project-tech">
                     <span>Python</span>
@@ -175,10 +206,15 @@
                     <h3>Gestion de Restaurant</h3>
                     <span class="project-tag">Java Desktop</span>
                 </div>
-                <p class="project-desc">
-                    Application desktop complète de gestion de restaurant 
-                    avec système de commandes, gestion des menus et des 
+                <p class="project-desc" data-lang="fr">
+                    Application desktop complète de gestion de restaurant
+                    avec système de commandes, gestion des menus et des
                     employés. Interface graphique avec JavaFX.
+                </p>
+                <p class="project-desc" data-lang="en" hidden>
+                    Complete desktop restaurant management app with order
+                    handling, menu and staff management. Graphical interface
+                    built with JavaFX.
                 </p>
                 <div class="project-tech">
                     <span>Java</span>
@@ -196,10 +232,15 @@
                     <h3>Site Web Vitrine</h3>
                     <span class="project-tag">Web</span>
                 </div>
-                <p class="project-desc">
-                    Site web vitrine responsive développé en HTML, CSS 
-                    et JavaScript pur. Mise en page moderne avec animations 
+                <p class="project-desc" data-lang="fr">
+                    Site web vitrine responsive développé en HTML, CSS
+                    et JavaScript pur. Mise en page moderne avec animations
                     CSS et formulaire de contact.
+                </p>
+                <p class="project-desc" data-lang="en" hidden>
+                    Responsive showcase website built with plain HTML, CSS
+                    and JavaScript. Modern layout with CSS animations and a
+                    contact form.
                 </p>
                 <div class="project-tech">
                     <span>HTML</span>
@@ -216,10 +257,14 @@
                     <h3>App de Gestion</h3>
                     <span class="project-tag">Mobile</span>
                 </div>
-                <p class="project-desc">
-                    Application mobile de gestion développée avec Flutter 
-                    et Dart. Interface intuitive avec gestion des données 
+                <p class="project-desc" data-lang="fr">
+                    Application mobile de gestion développée avec Flutter
+                    et Dart. Interface intuitive avec gestion des données
                     en temps réel.
+                </p>
+                <p class="project-desc" data-lang="en" hidden>
+                    Mobile management app built with Flutter and Dart.
+                    Intuitive interface with real-time data handling.
                 </p>
                 <div class="project-tech">
                     <span>Flutter</span>
@@ -236,10 +281,17 @@
 </section>
 <section id="contact">
     <div class="container">
-        <h2 class="section-title">Me Contacter</h2>
-        <p class="contact-desc">
+        <h2 class="section-title">
+            <span data-lang="fr">Me Contacter</span>
+            <span data-lang="en" hidden>Contact Me</span>
+        </h2>
+        <p class="contact-desc" data-lang="fr">
             Vous avez une opportunité de stage pour mai 2027, ou un projet en tête ?
             N'hésitez pas à me contacter !
+        </p>
+        <p class="contact-desc" data-lang="en" hidden>
+            Got an internship opportunity for May 2027, or a project in mind?
+            Feel free to reach out!
         </p>
         <div class="contact-links">
             <a href="mailto:basile2bagoudou@gmail.com" class="contact-card">
@@ -262,8 +314,10 @@
 
 <footer>
     <div class="container">
-        <p>Conçu & développé par <strong>Basile Bagoudou</strong> — 2026</p>
-        <p>© 2026 Basile Bagoudou. Tous droits réservés.</p>
+        <p data-lang="fr">Conçu & développé par <strong>Basile Bagoudou</strong> — 2026</p>
+        <p data-lang="en" hidden>Designed & built by <strong>Basile Bagoudou</strong> — 2026</p>
+        <p data-lang="fr">© 2026 Basile Bagoudou. Tous droits réservés.</p>
+        <p data-lang="en" hidden>© 2026 Basile Bagoudou. All rights reserved.</p>
     </div>
 </footer>
 <script src="script.js"></script>
