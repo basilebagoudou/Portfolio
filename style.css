@@ -95,6 +95,12 @@ nav {
     padding: 1.2rem 2rem;
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 .logo {
     font-size: 1.4rem;
     font-weight: 700;
