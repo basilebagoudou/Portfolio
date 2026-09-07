@@ -434,13 +434,13 @@ nav ul li a:hover {
 .contact-card {
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
     background-color: var(--bg);
     border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.2rem 2rem;
+    border-radius: 50%;
     color: var(--text-muted);
-    font-size: 1rem;
     transition: all 0.3s ease;
 }
 
@@ -452,7 +452,16 @@ nav ul li a:hover {
 }
 
 .contact-icon {
-    font-size: 1.4rem;
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+}
+
+.contact-icon.contact-icon--brand {
+    fill: currentColor;
+    stroke: none;
 }
 
 /* ===== FOOTER ===== */
@@ -548,10 +557,5 @@ section.visible {
     .about-content {
         flex-direction: column;
         gap: 2rem;
-    }
-
-    .contact-links {
-        flex-direction: column;
-        align-items: center;
     }
 }
