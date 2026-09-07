@@ -105,6 +105,7 @@ nav {
 
 nav ul {
     display: flex;
+    align-items: center;
     gap: 2rem;
 }
 
@@ -116,6 +117,25 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--primary);
+}
+
+.lang-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.lang-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--primary-soft);
 }
 
 /* ===== HERO ===== */
@@ -247,7 +267,7 @@ nav ul li a:hover {
     border-bottom: 1px solid var(--border);
 }
 
-.about-info ul li span {
+.about-info ul li .info-label {
     color: var(--primary);
     font-weight: 700;
     min-width: 90px;
