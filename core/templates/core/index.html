@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basile Bagoudou | Portfolio</title>
-    <meta name="description" content="Basile Bagoudou — élève ingénieur en data à l'IAI Togo : Python, pandas, scikit-learn, machine learning et développement web.">
+    <title>Basile Bagoudou — Élève ingénieur en Data</title>
+    <meta name="description" content="Basile Bagoudou — élève ingénieur en data (IAI Togo, GCI World 2026 – Université de Tokyo). Python, pandas, scikit-learn, SQL, Django. Recherche un stage data pour mai 2027.">
+    <meta property="og:title" content="Basile Bagoudou — Élève ingénieur en Data">
+    <meta property="og:description" content="Python, pandas, scikit-learn, SQL, Django. Stage data recherché pour mai 2027.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23d97757'/><rect x='7' y='17' width='4' height='8' rx='1' fill='white'/><rect x='14' y='11' width='4' height='14' rx='1' fill='white'/><rect x='21' y='7' width='4' height='18' rx='1' fill='white'/></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 </head>
 <body>
@@ -16,10 +20,10 @@
             <div class="logo">Portfolio</div>
             <div class="nav-right">
                 <ul>
-                    <li><a href="#about"><span data-lang="fr">À propos</span><span data-lang="en" hidden>About</span></a></li>
-                    <li><a href="#parcours"><span data-lang="fr">Parcours</span><span data-lang="en" hidden>Journey</span></a></li>
-                    <li><a href="#skills"><span data-lang="fr">Compétences</span><span data-lang="en" hidden>Skills</span></a></li>
+                    <li><a href="#about"><span data-lang="fr">Profil</span><span data-lang="en" hidden>Profile</span></a></li>
                     <li><a href="#projects"><span data-lang="fr">Projets</span><span data-lang="en" hidden>Projects</span></a></li>
+                    <li><a href="#skills"><span data-lang="fr">Compétences</span><span data-lang="en" hidden>Skills</span></a></li>
+                    <li><a href="#parcours"><span data-lang="fr">Parcours</span><span data-lang="en" hidden>Journey</span></a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="lang-toggle" role="group" aria-label="Changer de langue / Switch language">
@@ -35,6 +39,7 @@
         </nav>
     </header>
 
+    <!-- ===== HERO ===== -->
     <section id="hero">
         <svg class="hero-chart" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
             <polyline points="0,170 60,150 120,158 180,120 240,128 300,90 360,100 420,62 480,70 540,38 600,30"/>
@@ -43,150 +48,240 @@
                 <circle cx="420" cy="62" r="4"/><circle cx="540" cy="38" r="4"/>
             </g>
         </svg>
-        <div class="hero-content">
-            <p class="hero-salut"><span data-lang="fr">Salut, moi c'est</span><span data-lang="en" hidden>Hi, I'm</span></p>
-            <h1>Basile BAGOUDOU</h1>
-            <h2>
-                <span data-lang="fr">Élève ingénieur en <em class="accent">Data</em></span>
-                <span data-lang="en" hidden><em class="accent">Data</em> Engineering Student</span>
-            </h2>
-            <p class="hero-desc" data-lang="fr">
-                J'apprends à transformer des données en décisions : nettoyage avec pandas,
-                visualisation, modèles de machine learning et leur évaluation. Avec une base
-                solide en développement web, je sais aussi construire et déployer les
-                applications qui les mettent entre les mains des utilisateurs.
-            </p>
-            <p class="hero-desc" data-lang="en" hidden>
-                I'm learning to turn data into decisions: cleaning with pandas, visualization,
-                machine learning models and how to evaluate them. With a solid web development
-                background, I can also build and ship the applications that put them in
-                users' hands.
-            </p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn-primary"><span data-lang="fr">Voir mes projets</span><span data-lang="en" hidden>View my projects</span></a>
-                <a href="#contact" class="btn-secondary"><span data-lang="fr">Me contacter</span><span data-lang="en" hidden>Contact me</span></a>
+        <div class="hero-grid">
+            <div class="hero-content">
+                <p class="hero-salut"><span data-lang="fr">Salut, moi c'est</span><span data-lang="en" hidden>Hi, I'm</span></p>
+                <h1>Basile BAGOUDOU</h1>
+                <h2>
+                    <span data-lang="fr">Élève ingénieur en <em class="accent">Data</em></span>
+                    <span data-lang="en" hidden><em class="accent">Data</em> Engineering Student</span>
+                </h2>
+                <p class="hero-desc" data-lang="fr">
+                    Je transforme des données brutes en <strong>modèles évalués honnêtement</strong>
+                    et en <strong>applications déployées</strong>. Formé à la data science par
+                    l'Université de Tokyo (GCI World 2026), avec un vrai bagage d'ingénieur logiciel.
+                </p>
+                <p class="hero-desc" data-lang="en" hidden>
+                    I turn raw data into <strong>honestly evaluated models</strong> and
+                    <strong>deployed applications</strong>. Trained in data science by the University
+                    of Tokyo (GCI World 2026), with a real software engineering background.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary"><span data-lang="fr">Voir mes projets data</span><span data-lang="en" hidden>See my data projects</span></a>
+                    <a href="#contact" class="btn-secondary"><span data-lang="fr">Me contacter</span><span data-lang="en" hidden>Contact me</span></a>
+                </div>
+                <p class="hero-now">
+                    <span class="pulse" aria-hidden="true"></span>
+                    <span data-lang="fr">Disponible pour un <strong>stage data dès mai 2027</strong> · Lomé ou à distance</span>
+                    <span data-lang="en" hidden>Available for a <strong>data internship from May 2027</strong> · Lomé or remote</span>
+                </p>
             </div>
-            <p class="hero-now">
-                <span class="pulse" aria-hidden="true"></span>
-                <span data-lang="fr">En ce moment : GCI World 2026 (Université de Tokyo) · recherche de stage pour mai 2027</span>
-                <span data-lang="en" hidden>Right now: GCI World 2026 (University of Tokyo) · looking for an internship for May 2027</span>
-            </p>
+
+            <div class="notebook" aria-label="Profil résumé / Profile summary">
+                <div class="notebook-bar">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span class="notebook-file">profil.ipynb</span>
+                </div>
+                <div class="notebook-cell">
+                    <span class="prompt">In [1]:</span>
+                    <code><span class="kw">import</span> basile <span class="kw">as</span> bb<br>bb.describe()</code>
+                </div>
+                <div class="notebook-out">
+                    <span class="prompt prompt--out">Out[1]:</span>
+                    <table class="df">
+                        <tbody>
+                        {% for cle, valeur in profil %}
+                            <tr>
+                                <th>{% include "core/_t.html" with t=cle only %}</th>
+                                <td>{% include "core/_t.html" with t=valeur only %}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- ===== CHIFFRES CLÉS ===== -->
+    <section id="chiffres" class="kpis" aria-label="Chiffres clés / Key figures">
+        <div class="container kpi-grid">
+            {% for c in chiffres %}
+            <div class="kpi">
+                <span class="kpi-value" data-count="{{ c.valeur }}">
+                    <span data-lang="fr">{{ c.texte }}</span><span data-lang="en" hidden>{{ c.texte_en }}</span>
+                </span>
+                <span class="kpi-label">{% include "core/_t.html" with t=c.label only %}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- ===== PROFIL ===== -->
     <section id="about">
         <div class="container">
             <h2 class="section-title">
-                <span data-lang="fr">À propos de moi</span>
-                <span data-lang="en" hidden>About Me</span>
+                <span data-lang="fr">Ce que j'apporte à une équipe data</span>
+                <span data-lang="en" hidden>What I bring to a data team</span>
             </h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p data-lang="fr">
-                        <strong>Élève ingénieur en data à l'IAI Togo</strong> (L3), je me spécialise en
-                        <strong>data science</strong>. Je suis le programme <strong>GCI World 2026</strong> du
-                        Matsuo-Iwasawa Lab (Université de Tokyo) et <strong>CS50P</strong> de Harvard pour
-                        consolider mon Python, en parallèle de mes cours de statistiques et de bases de données.
-                    </p>
-                    <p data-lang="en" hidden>
-                        <strong>Data engineering student at IAI Togo</strong> (3rd year), I'm specializing in
-                        <strong>data science</strong>. I'm following the <strong>GCI World 2026</strong> program
-                        from the Matsuo-Iwasawa Lab (University of Tokyo) and Harvard's <strong>CS50P</strong> to
-                        strengthen my Python, alongside my statistics and database courses.
-                    </p>
-                    <p data-lang="fr">
-                        Mon stage au <strong>CENETI</strong>, où j'ai conçu et mis en production une plateforme
-                        Laravel complète, m'a appris à livrer de bout en bout. Je veux maintenant mettre ce
-                        savoir-faire au service des données. <strong>À la recherche d'un stage en data pour
-                        mai 2027.</strong>
-                    </p>
-                    <p data-lang="en" hidden>
-                        My internship at <strong>CENETI</strong>, where I designed and shipped a complete
-                        Laravel platform, taught me to deliver end-to-end. Now I want to bring that know-how
-                        to data. <strong>Looking for a data internship for May 2027.</strong>
-                    </p>
-                </div>
-                <div class="about-info">
-                    <ul>
-                        <li><span class="info-label" data-lang="fr">Nom</span><span class="info-label" data-lang="en" hidden>Name</span> Basile Bagoudou</li>
-                        <li><span class="info-label" data-lang="fr">Formation</span><span class="info-label" data-lang="en" hidden>Education</span> <span data-lang="fr">L3 Génie Logiciel</span><span data-lang="en" hidden>3rd-year Software Eng.</span></li>
-                        <li><span class="info-label" data-lang="fr">Université</span><span class="info-label" data-lang="en" hidden>University</span> <span data-lang="fr">Institut Africain d'Informatique</span><span data-lang="en" hidden>African Institute of Computer Science (IAI)</span></li>
-                        <li><span class="info-label">Focus</span> <span data-lang="fr">Data science, machine learning</span><span data-lang="en" hidden>Data science, machine learning</span></li>
-                        <li><span class="info-label">Email</span> basile2bagoudou@gmail.com</li>
-                        <li><span class="info-label" data-lang="fr">Disponible</span><span class="info-label" data-lang="en" hidden>Available</span> <span data-lang="fr">Stage dès mai 2027</span><span data-lang="en" hidden>Internship from May 2027</span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="parcours">
-        <div class="container">
-            <h2 class="section-title">
-                <span data-lang="fr">Parcours</span>
-                <span data-lang="en" hidden>Journey</span>
-            </h2>
-            <ol class="timeline">
-                {% for etape in parcours %}
-                <li class="timeline-item{% if etape.en_cours %} is-current{% endif %}">
-                    <div class="timeline-period">
-                        {% include "core/_t.html" with t=etape.periode only %}
-                        {% if etape.en_cours %}<span class="badge-live"><span data-lang="fr">en cours</span><span data-lang="en" hidden>ongoing</span></span>{% endif %}
+            <p class="section-intro" data-lang="fr">
+                Élève ingénieur en L3 à l'IAI Togo, je me spécialise en data science. Mon avantage :
+                je ne m'arrête pas au notebook. Je sais nettoyer une donnée imparfaite, choisir la bonne
+                métrique, et livrer le résultat dans une application qui tourne.
+            </p>
+            <p class="section-intro" data-lang="en" hidden>
+                A third-year engineering student at IAI Togo, I'm specializing in data science. My edge:
+                I don't stop at the notebook. I can clean imperfect data, pick the right metric, and ship
+                the result in an application that runs.
+            </p>
+            <div class="apports-grid">
+                {% for a in apports %}
+                <article class="apport-card">
+                    <div class="apport-icon" aria-hidden="true">
+                        {% if a.icone == "analyse" %}
+                        <svg viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></svg>
+                        {% elif a.icone == "modele" %}
+                        <svg viewBox="0 0 24 24"><circle cx="5" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="7" r="2"/><circle cx="19" cy="17" r="2"/><path d="M7 6.8l3.2 4.2M7 17.2l3.2-4.2M14 11l3.2-3M14 13l3.2 3"/></svg>
+                        {% else %}
+                        <svg viewBox="0 0 24 24"><path d="M12 2l8 4.5v9L12 20l-8-4.5v-9z"/><path d="M12 11l8-4.5M12 11L4 6.5M12 11v9"/></svg>
+                        {% endif %}
                     </div>
-                    <h3>{% include "core/_t.html" with t=etape.titre only %}</h3>
-                    <p class="timeline-place">{% include "core/_t.html" with t=etape.lieu only %}</p>
-                    <p class="timeline-text">{% include "core/_t.html" with t=etape.texte only %}</p>
-                </li>
+                    <h3>{% include "core/_t.html" with t=a.titre only %}</h3>
+                    <p>{% include "core/_t.html" with t=a.texte only %}</p>
+                </article>
                 {% endfor %}
-            </ol>
+            </div>
 
-            <div class="learning">
-                <h3 class="learning-title">
-                    <span data-lang="fr">Programme GCI World 2026 — modules suivis</span>
-                    <span data-lang="en" hidden>GCI World 2026 program — modules followed</span>
+            <div class="pipeline" aria-label="Démarche data / Data workflow">
+                <h3 class="sub-title">
+                    <span data-lang="fr">Ma démarche, de la donnée brute à la production</span>
+                    <span data-lang="en" hidden>My workflow, from raw data to production</span>
                 </h3>
-                <div class="learning-grid">
-                    {% for module in gci_modules %}
-                    <div class="learning-card">
-                        <span class="learning-num">{{ module.num|stringformat:"02d" }}</span>
-                        <span class="learning-name">{% include "core/_t.html" with t=module.titre only %}</span>
-                    </div>
+                <ol class="pipeline-steps">
+                    {% for p in pipeline %}
+                    <li class="pipeline-step" style="--i: {{ forloop.counter0 }}">
+                        <span class="pipeline-num">{{ forloop.counter|stringformat:"02d" }}</span>
+                        <span class="pipeline-name">{% include "core/_t.html" with t=p.etape only %}</span>
+                        <span class="pipeline-tools">{{ p.outils }}</span>
+                    </li>
                     {% endfor %}
-                </div>
+                </ol>
             </div>
         </div>
     </section>
 
-    <section id="skills">
-        <div class="container">
-            <h2 class="section-title">
-                <span data-lang="fr">Compétences</span>
-                <span data-lang="en" hidden>Skills</span>
-            </h2>
-            <div class="skills-content">
-                {% for categorie in competences %}
-                <div class="skills-category{% if categorie.accent %} skills-category--accent{% endif %}">
-                    <h3>{% include "core/_t.html" with t=categorie.titre only %}</h3>
-                    <div class="skills-grid">
-                        {% for item in categorie.items %}
-                        <div class="skill-card">{% if item.fr %}{% include "core/_t.html" with t=item only %}{% else %}{{ item }}{% endif %}</div>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-        </div>
-    </section>
-
+    <!-- ===== PROJETS ===== -->
     <section id="projects">
         <div class="container">
             <h2 class="section-title">
-                <span data-lang="fr">Mes Projets</span>
-                <span data-lang="en" hidden>My Projects</span>
+                <span data-lang="fr">Projets data</span>
+                <span data-lang="en" hidden>Data projects</span>
             </h2>
+            <div class="data-projects">
+                {% for projet in projets_data %}
+                <article class="case">
+                    <div class="case-main">
+                        <span class="project-tag">{% include "core/_t.html" with t=projet.statut only %}</span>
+                        <h3>{% include "core/_t.html" with t=projet.titre only %}</h3>
+                        <dl class="case-steps">
+                            <dt><span data-lang="fr">Contexte</span><span data-lang="en" hidden>Context</span></dt>
+                            <dd>{% include "core/_t.html" with t=projet.contexte only %}</dd>
+                            <dt><span data-lang="fr">Approche</span><span data-lang="en" hidden>Approach</span></dt>
+                            <dd>{% include "core/_t.html" with t=projet.approche only %}</dd>
+                            <dt><span data-lang="fr">Le vrai enjeu</span><span data-lang="en" hidden>The real challenge</span></dt>
+                            <dd>{% include "core/_t.html" with t=projet.enjeu only %}</dd>
+                        </dl>
+                        <div class="project-tech">
+                            {% for tech in projet.tech %}<span>{{ tech }}</span>{% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="case-viz">
+                        <div class="case-facts">
+                            {% for f in projet.faits %}
+                            <div class="fact">
+                                <span class="fact-value">{% if f.valeur_en %}<span data-lang="fr">{{ f.valeur }}</span><span data-lang="en" hidden>{{ f.valeur_en }}</span>{% else %}{{ f.valeur }}{% endif %}</span>
+                                <span class="fact-label">{% include "core/_t.html" with t=f.label only %}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        {% if projet.viz == "desequilibre" %}
+                        <figure class="chart">
+                            <figcaption>
+                                <span data-lang="fr">Répartition de la cible (jeu d'entraînement)</span>
+                                <span data-lang="en" hidden>Target distribution (training set)</span>
+                            </figcaption>
+                            <div class="stack-bar" role="img" aria-label="91,9 % / 8,1 %">
+                                <span class="stack-ok" style="--w: 91.9%"></span>
+                                <span class="stack-ko" style="--w: 8.1%"></span>
+                            </div>
+                            <div class="stack-legend">
+                                <span><i class="sw sw-ok"></i><span data-lang="fr">Remboursé · 91,9 %</span><span data-lang="en" hidden>Repaid · 91.9%</span></span>
+                                <span><i class="sw sw-ko"></i><span data-lang="fr">Défaut · 8,1 %</span><span data-lang="en" hidden>Default · 8.1%</span></span>
+                            </div>
+                        </figure>
+                        <figure class="chart">
+                            <figcaption>
+                                <span data-lang="fr">Métrique : ROC AUC (principe)</span>
+                                <span data-lang="en" hidden>Metric: ROC AUC (how it works)</span>
+                            </figcaption>
+                            <svg class="roc" viewBox="0 0 220 150" role="img" aria-label="ROC curve">
+                                <line class="roc-axis" x1="30" y1="125" x2="210" y2="125"/>
+                                <line class="roc-axis" x1="30" y1="125" x2="30" y2="10"/>
+                                <path class="roc-area" d="M30 125 C 45 50, 90 22, 210 10 L 210 125 Z"/>
+                                <line class="roc-random" x1="30" y1="125" x2="210" y2="10"/>
+                                <path class="roc-curve" d="M30 125 C 45 50, 90 22, 210 10"/>
+                                <text x="120" y="143" class="roc-label"><tspan data-lang="fr">Taux de faux positifs</tspan><tspan data-lang="en" hidden>False positive rate</tspan></text>
+                                <text x="12" y="68" class="roc-label" transform="rotate(-90 12 68)"><tspan data-lang="fr">Vrais positifs</tspan><tspan data-lang="en" hidden>True positives</tspan></text>
+                                <text x="150" y="98" class="roc-note"><tspan data-lang="fr">hasard</tspan><tspan data-lang="en" hidden>random</tspan></text>
+                            </svg>
+                        </figure>
+                        {% elif projet.viz == "tables" %}
+                        <figure class="chart">
+                            <figcaption>
+                                <span data-lang="fr">Du jeu de données à la décision</span>
+                                <span data-lang="en" hidden>From dataset to decision</span>
+                            </figcaption>
+                            <svg class="flow" viewBox="0 0 260 170" role="img" aria-label="Client + Record → EDA + ML → impact">
+                                <g class="flow-table">
+                                    <rect x="6" y="14" width="78" height="56" rx="6"/>
+                                    <text x="45" y="38">Client</text>
+                                    <text x="45" y="56" class="flow-small"><tspan data-lang="fr">50 colonnes</tspan><tspan data-lang="en" hidden>50 columns</tspan></text>
+                                </g>
+                                <g class="flow-table">
+                                    <rect x="6" y="100" width="78" height="56" rx="6"/>
+                                    <text x="45" y="124">Record</text>
+                                    <text x="45" y="142" class="flow-small"><tspan data-lang="fr">51 colonnes</tspan><tspan data-lang="en" hidden>51 columns</tspan></text>
+                                </g>
+                                <path class="flow-link" d="M84 42 C 110 42, 106 85, 128 85"/>
+                                <path class="flow-link" d="M84 128 C 110 128, 106 85, 128 85"/>
+                                <g class="flow-node">
+                                    <rect x="128" y="64" width="56" height="42" rx="21"/>
+                                    <text x="156" y="83">EDA</text>
+                                    <text x="156" y="97" class="flow-small">+ ML</text>
+                                </g>
+                                <path class="flow-link" d="M184 85 L 202 85"/>
+                                <g class="flow-out">
+                                    <rect x="202" y="58" width="52" height="54" rx="6"/>
+                                    <text x="228" y="82">ROI</text>
+                                    <text x="228" y="98" class="flow-small">impact</text>
+                                </g>
+                            </svg>
+                        </figure>
+                        {% endif %}
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+
+            <h3 class="sub-title sub-title--spaced">
+                <span data-lang="fr">Ingénierie logicielle — je sais livrer</span>
+                <span data-lang="en" hidden>Software engineering — I can ship</span>
+            </h3>
             <div class="projects-grid">
-                {% for projet in projets %}
-                <article class="project-card{% if projet.data %} project-card--data{% endif %}">
+                {% for projet in projets_ing %}
+                <article class="project-card">
                     <div class="project-header">
                         <h3>{% include "core/_t.html" with t=projet.titre only %}</h3>
                         <span class="project-tag">{% include "core/_t.html" with t=projet.tag only %}</span>
@@ -208,20 +303,115 @@
         </div>
     </section>
 
+    <!-- ===== COMPÉTENCES ===== -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span data-lang="fr">Compétences</span>
+                <span data-lang="en" hidden>Skills</span>
+            </h2>
+            <div class="skills-layout">
+                <div class="skills-content">
+                    {% for categorie in competences %}
+                    <div class="skills-category{% if categorie.accent %} skills-category--accent{% endif %}">
+                        <h3>{% include "core/_t.html" with t=categorie.titre only %}</h3>
+                        <div class="skills-grid">
+                            {% for item in categorie.items %}
+                            <div class="skill-card">{% if item.fr %}{% include "core/_t.html" with t=item only %}{% else %}{{ item }}{% endif %}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <figure class="heatmap">
+                    <figcaption>
+                        <span data-lang="fr">Où je les ai utilisées — compétences × projets</span>
+                        <span data-lang="en" hidden>Where I've used them — skills × projects</span>
+                    </figcaption>
+                    <div class="heatmap-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    {% for col in matrice.colonnes %}<th scope="col"><span class="col-label">{% include "core/_t.html" with t=col only %}</span></th>{% endfor %}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ligne in matrice.lignes %}
+                                <tr>
+                                    <th scope="row">{{ ligne.tech }}</th>
+                                    {% for actif in ligne.cellules %}<td class="{% if actif %}on{% endif %}"><span class="sr-only">{% if actif %}✓{% endif %}</span></td>{% endfor %}
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="heatmap-note">
+                        <span data-lang="fr">Calculée automatiquement à partir des projets de cette page.</span>
+                        <span data-lang="en" hidden>Computed automatically from the projects on this page.</span>
+                    </p>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PARCOURS ===== -->
+    <section id="parcours">
+        <div class="container">
+            <h2 class="section-title">
+                <span data-lang="fr">Parcours</span>
+                <span data-lang="en" hidden>Journey</span>
+            </h2>
+            <ol class="timeline">
+                {% for etape in parcours %}
+                <li class="timeline-item{% if etape.en_cours %} is-current{% endif %}">
+                    <div class="timeline-period">
+                        {% include "core/_t.html" with t=etape.periode only %}
+                        {% if etape.en_cours %}<span class="badge-live"><span data-lang="fr">en cours</span><span data-lang="en" hidden>ongoing</span></span>{% endif %}
+                    </div>
+                    <h3>{% include "core/_t.html" with t=etape.titre only %}</h3>
+                    <p class="timeline-place">{% include "core/_t.html" with t=etape.lieu only %}</p>
+                    <p class="timeline-text">{% include "core/_t.html" with t=etape.texte only %}</p>
+                </li>
+                {% endfor %}
+            </ol>
+
+            <div class="learning">
+                <h3 class="sub-title">
+                    <span data-lang="fr">GCI World 2026 — modules suivis</span>
+                    <span data-lang="en" hidden>GCI World 2026 — modules followed</span>
+                </h3>
+                <div class="learning-grid">
+                    {% for module in gci_modules %}
+                    <div class="learning-card">
+                        <span class="learning-num">{{ module.num|stringformat:"02d" }}</span>
+                        <span class="learning-name">{% include "core/_t.html" with t=module.titre only %}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
     <section id="contact">
         <div class="container">
             <h2 class="section-title">
-                <span data-lang="fr">Me Contacter</span>
-                <span data-lang="en" hidden>Contact Me</span>
+                <span data-lang="fr">Travaillons ensemble</span>
+                <span data-lang="en" hidden>Let's work together</span>
             </h2>
             <p class="contact-desc" data-lang="fr">
-                Vous avez une opportunité de stage en data pour mai 2027, ou un projet en tête ?
-                N'hésitez pas à me contacter !
+                Je cherche un <strong>stage en data</strong> (analyse, machine learning ou data engineering)
+                à partir de <strong>mai 2027</strong>, sur place à Lomé ou à distance. Un échange de
+                15 minutes suffit pour voir si mon profil correspond à votre équipe.
             </p>
             <p class="contact-desc" data-lang="en" hidden>
-                Got a data internship opportunity for May 2027, or a project in mind?
-                Feel free to reach out!
+                I'm looking for a <strong>data internship</strong> (analytics, machine learning or data
+                engineering) from <strong>May 2027</strong>, on-site in Lomé or remote. A 15-minute call is
+                enough to see whether I'm a fit for your team.
             </p>
+            <a href="mailto:basile2bagoudou@gmail.com?subject=Stage%20data%20-%20Basile%20Bagoudou" class="btn-primary contact-cta">basile2bagoudou@gmail.com</a>
             <div class="contact-links">
                 <a href="mailto:basile2bagoudou@gmail.com" class="contact-card" aria-label="Email" title="basile2bagoudou@gmail.com">
                     <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -247,8 +437,6 @@
         <div class="container">
             <p data-lang="fr">Conçu & développé avec Django par <strong>Basile Bagoudou</strong> — {{ annee }}</p>
             <p data-lang="en" hidden>Designed & built with Django by <strong>Basile Bagoudou</strong> — {{ annee }}</p>
-            <p data-lang="fr">© {{ annee }} Basile Bagoudou. Tous droits réservés.</p>
-            <p data-lang="en" hidden>© {{ annee }} Basile Bagoudou. All rights reserved.</p>
         </div>
     </footer>
     <script src="{% static 'core/js/script.js' %}"></script>

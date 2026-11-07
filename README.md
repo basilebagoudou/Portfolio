@@ -2,18 +2,19 @@
 
 Personal portfolio of **Basile Bagoudou** — 3rd-year Software Engineering student at
 IAI Togo, focused on data science. Bilingual (French/English) single-page site built
-with **Django** and deployed on **Vercel**.
+with **Django** and deployed on **Vercel**: https://basile-bagoudou.vercel.app
 
 ## Sections
 
 | Section | Content |
 |---------|---------|
-| Hero | Name, data-science focus, short pitch, "right now" status |
-| About | Background, GCI World 2026, CS50P, CENETI internship, key details |
+| Hero | Headline, value proposition, availability, `profil.ipynb` card (`bb.describe()`) |
+| Key figures | Animated counters: dataset sizes, GCI modules followed, number of projects |
+| Profile | What I bring to a data team (analyze, model, ship) + data workflow pipeline |
+| Projects | Data case studies (context / approach / real challenge, with charts) + engineering projects |
+| Skills | Skill groups + a skills × projects matrix computed from the project data |
 | Journey | Timeline (L3 at IAI, GCI World 2026, CS50P, CENETI) + GCI modules followed |
-| Skills | Data & AI, web development, databases, tools |
-| Projects | Home Credit default risk (GCI), CENETI Platform, Optima, coffee shop website |
-| Contact | Email, GitHub and LinkedIn links |
+| Contact | Internship pitch, email, GitHub, LinkedIn |
 
 ## Project structure
 
@@ -25,7 +26,7 @@ Portfolio/
 ├── portfolio_site/          # Django project (settings, urls, wsgi)
 └── core/                    # the portfolio app
     ├── content.py           # ALL the content (FR + EN) — edit this to update the site
-    ├── views.py
+    ├── views.py             # computes key figures and the skills × projects matrix
     ├── templates/core/      # index.html + _t.html (bilingual text helper)
     └── static/core/         # style.css, script.js
 ```

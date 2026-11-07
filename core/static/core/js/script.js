@@ -54,8 +54,10 @@ const boutonsLangue = document.querySelectorAll('.lang-option');
 const CLE_LANGUE = 'langue-portfolio';
 
 function appliquerLangue(langue) {
+    // toggleAttribute (et non el.hidden) : fonctionne aussi sur les <tspan>
+    // des graphiques SVG, qui n'ont pas de propriété « hidden ».
     document.querySelectorAll('[data-lang]').forEach(function(el) {
-        el.hidden = el.dataset.lang !== langue;
+        el.toggleAttribute('hidden', el.getAttribute('data-lang') !== langue);
     });
     boutonsLangue.forEach(function(bouton) {
         const estActif = bouton.dataset.langBtn === langue;
@@ -74,3 +76,40 @@ boutonsLangue.forEach(function(bouton) {
         appliquerLangue(bouton.dataset.langBtn);
     });
 });
+// ===== CHIFFRES CLÉS : compteur animé =====
+// Chaque .kpi-value porte la valeur finale dans data-count ; on fait défiler
+// le nombre de 0 à cette valeur la première fois que le bandeau est visible,
+// avec le séparateur de milliers de la langue affichée.
+function formater(n, langue) {
+    return Math.round(n).toLocaleString(langue === 'en' ? 'en-US' : 'fr-FR');
+}
+
+function animerCompteur(el) {
+    const cible = Number(el.dataset.count);
+    const spans = el.querySelectorAll('[data-lang]');
+    const duree = 1400;
+    const debut = performance.now();
+    function etape(maintenant) {
+        const p = Math.min((maintenant - debut) / duree, 1);
+        const valeur = cible * (1 - Math.pow(1 - p, 3));
+        spans.forEach(function(span) {
+            span.textContent = formater(valeur, span.getAttribute('data-lang'));
+        });
+        if (p < 1) requestAnimationFrame(etape);
+    }
+    requestAnimationFrame(etape);
+}
+
+const bandeau = document.querySelector('#chiffres');
+const mouvementReduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (bandeau && !mouvementReduit) {
+    const observateurChiffres = new IntersectionObserver(function(entries, obs) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.kpi-value[data-count]').forEach(animerCompteur);
+                obs.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.4 });
+    observateurChiffres.observe(bandeau);
+}
