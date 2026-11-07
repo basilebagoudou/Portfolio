@@ -84,3 +84,7 @@ redeploys the site.
 The site stays as light as a static page, but the content became a single source of data from which
 everything else is derived. For a data profile, that's consistent: **write the facts once, compute
 the rest**.
+
+*Update: the site now has a back-office for writing these articles. It uses a Postgres database and
+runs on a separate address from the portfolio. The page content itself still lives in
+`content.py`.*

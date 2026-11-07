@@ -1,0 +1,38 @@
+{% extends "admin/change_list.html" %}
+
+{% block result_list %}
+{% if stats %}
+<div class="stats">
+    <div class="stats-kpis">
+        <div><strong>{{ stats.vues }}</strong><span>pages vues</span></div>
+        <div><strong>{{ stats.visiteurs }}</strong><span>visiteurs uniques (par jour)</span></div>
+        <div><strong>{{ stats.aujourdhui }}</strong><span>vues aujourd'hui</span></div>
+        <div><strong>{{ stats.semaine }}</strong><span>vues sur 7 jours</span></div>
+    </div>
+
+    {% if stats.par_jour %}
+    <h3>Pages vues par jour (30 derniers jours)</h3>
+    <div class="stats-jours">
+        {% for j in stats.par_jour %}
+        <div class="stats-jour" title="{{ j.jour|date:'d/m/Y' }} : {{ j.n }} vues, {{ j.uniques }} visiteurs">
+            <span class="stats-barre" style="height: {{ j.pct }}%"></span>
+            <span class="stats-date">{{ j.jour|date:"d/m" }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="stats-tops">
+        <div><h3>Pays</h3><ol>{% for p in stats.pays %}<li><span>{{ p.drapeau }} {{ p.pays }}</span><b>{{ p.n }}</b></li>{% empty %}<li>—</li>{% endfor %}</ol></div>
+        <div><h3>Villes</h3><ol>{% for v in stats.villes %}<li><span>{{ v.ville }}</span><b>{{ v.n }}</b></li>{% empty %}<li>—</li>{% endfor %}</ol></div>
+        <div><h3>D'où ils viennent</h3><ol>{% for s in stats.sources %}<li><span>{{ s.source }}</span><b>{{ s.n }}</b></li>{% empty %}<li>—</li>{% endfor %}</ol></div>
+        <div><h3>Pages les plus vues</h3><ol>{% for p in stats.pages %}<li><span>{{ p.chemin }}</span><b>{{ p.n }}</b></li>{% empty %}<li>—</li>{% endfor %}</ol></div>
+        <div><h3>Appareils</h3><ol>{% for a in stats.appareils %}<li><span>{{ a.appareil }}</span><b>{{ a.n }}</b></li>{% empty %}<li>—</li>{% endfor %}</ol></div>
+    </div>
+    <p class="stats-note">Les chiffres suivent les filtres de droite (période, pays, source…). Aucune adresse IP n'est conservée ; les visites de plus de 13 mois sont supprimées.</p>
+    <p class="stats-note">Pour ne pas fausser les chiffres avec tes propres visites, ouvre une fois ce lien sur chacun de tes navigateurs (ordinateur, téléphone) :
+        <a href="{{ lien_ne_pas_compter }}" target="_blank" rel="noopener">ne plus compter mes visites sur ce navigateur</a>.</p>
+</div>
+{% endif %}
+{{ block.super }}
+{% endblock %}

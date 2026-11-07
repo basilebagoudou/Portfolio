@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 
 {% block meta %}
+    <link rel="alternate" type="application/rss+xml" title="Notes de data" href="{% url 'articles_rss' %}">
     <title>{{ article.titre.fr }} — Basile Bagoudou</title>
     <meta name="description" content="{{ article.resume.fr }}">
     <meta property="og:title" content="{{ article.titre.fr }}">
@@ -15,6 +16,7 @@
                 <a href="{% url 'articles' %}" class="back-link">
                     <span data-lang="fr">← Tous les articles</span><span data-lang="en" hidden>← All articles</span>
                 </a>
+                {% if not article.publie %}<p class="draft-badge">Brouillon — visible seulement dans le back-office</p>{% endif %}
                 <p class="kicker">
                     {% include "core/_t.html" with t=article.date_txt only %} ·
                     {% include "core/_t.html" with t=article.lecture only %}
@@ -36,17 +38,21 @@
                         <p class="kicker">
                             <span data-lang="fr">Sujets</span><span data-lang="en" hidden>Topics</span>
                         </p>
+                        {% if article.sujets %}
                         <ul class="aside-topics">
                             {% for s in article.sujets %}
                             <li class="aside-topic topic-{{ s.famille }}">{% include "core/_t.html" with t=s.label only %}</li>
                             {% endfor %}
                         </ul>
+                        {% endif %}
+                        {% if article.projet %}
                         <p class="kicker">
                             <span data-lang="fr">Le projet</span><span data-lang="en" hidden>The project</span>
                         </p>
                         <a href="{% url 'accueil' %}#{{ article.projet.ancre }}" class="aside-project">
                             {% include "core/_t.html" with t=article.projet.titre only %} →
                         </a>
+                        {% endif %}
                         <div class="aside-cta">
                             <p>
                                 <span data-lang="fr">Un stage data à proposer ?</span>

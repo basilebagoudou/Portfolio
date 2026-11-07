@@ -1,0 +1,8 @@
+{% extends "admin/login.html" %}
+{% block content %}
+<p class="errornote">
+    Trop de tentatives de connexion échouées. Pour ta sécurité, la connexion est
+    bloquée pendant 15 minutes. Chaque tentative est enregistrée.
+</p>
+<p><a href="{% url 'admin:login' %}">Revenir à la page de connexion</a></p>
+{% endblock %}

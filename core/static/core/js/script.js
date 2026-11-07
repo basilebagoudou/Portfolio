@@ -190,6 +190,8 @@ const MESSAGES_CONTACT = {
                 en: "Thanks, your message has been sent. I'll get back to you soon." },
     invalide: { fr: 'Vérifiez les champs en rouge (message de 10 caractères minimum).',
                 en: 'Please check the fields in red (message: 10 characters minimum).' },
+    limite:   { fr: 'Trop de messages envoyés. Réessayez dans une heure ou écrivez à basile2bagoudou@gmail.com.',
+                en: 'Too many messages sent. Try again in an hour or email basile2bagoudou@gmail.com.' },
     erreur:   { fr: "L'envoi a échoué. Écrivez-moi directement à basile2bagoudou@gmail.com.",
                 en: 'Sending failed. Please email me directly at basile2bagoudou@gmail.com.' }
 };

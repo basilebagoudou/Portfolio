@@ -1,6 +1,7 @@
 {% extends "core/base.html" %}
 
 {% block meta %}
+    <link rel="alternate" type="application/rss+xml" title="Notes de data" href="{% url 'articles_rss' %}">
     <title>Articles — Basile Bagoudou, élève ingénieur en Data</title>
     <meta name="description" content="Notes de data de Basile Bagoudou : ce que j'apprends sur mes projets (machine learning, évaluation de modèles, Python, Django), avec le code.">
     <meta property="og:title" content="Articles — Basile Bagoudou">
@@ -25,9 +26,14 @@
                     pitfalls to avoid. With the code.
                 </p>
 
+                {% if articles %}
                 <div class="articles-grid">
                     {% for a in articles %}{% include "core/_article_card.html" with a=a only %}{% endfor %}
                 </div>
+                {% else %}
+                <p class="page-intro"><span data-lang="fr">Les premiers articles arrivent bientôt.</span><span data-lang="en" hidden>The first articles are coming soon.</span></p>
+                {% endif %}
+                <p class="rss-link"><a href="{% url 'articles_rss' %}">RSS</a></p>
             </div>
         </section>
     </main>

@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+
+{% block meta %}<title>Page introuvable — Basile Bagoudou</title><meta name="robots" content="noindex">{% endblock %}
+
+{% block content %}
+    <main class="page">
+        <section class="page-section">
+            <div class="container">
+                <p class="kicker">Erreur 404</p>
+                <h1 class="page-title">
+                    <span data-lang="fr">Cette page n'est pas dans le jeu de données.</span>
+                    <span data-lang="en" hidden>This page isn't in the dataset.</span>
+                </h1>
+                <p class="page-intro" data-lang="fr">L'adresse a peut-être changé, ou l'article n'est plus en ligne.</p>
+                <p class="page-intro" data-lang="en" hidden>The address may have changed, or the article is no longer online.</p>
+                <div class="hero-buttons">
+                    <a href="{% url 'accueil' %}" class="btn-primary"><span data-lang="fr">Retour à l'accueil</span><span data-lang="en" hidden>Back to home</span></a>
+                    <a href="{% url 'articles' %}" class="btn-secondary"><span data-lang="fr">Voir les articles</span><span data-lang="en" hidden>See the articles</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

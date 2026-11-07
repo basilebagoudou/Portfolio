@@ -2016,3 +2016,23 @@ nav ul li a.is-active { color: var(--primary); }
     .articles-grid { grid-template-columns: 1fr; }
     .footer-dist { height: 36px; width: calc(100% - 2rem); }
 }
+
+/* ===== BROUILLONS (aperçu du back-office) & RSS ===== */
+.draft-badge {
+    display: inline-block;
+    align-self: flex-start;
+    background: #fff3cd;
+    color: #7a5b00;
+    border: 1px dashed #d4a72c;
+    border-radius: 6px;
+    padding: 0.2rem 0.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    margin-bottom: 0.8rem;
+}
+.rss-link {
+    margin-top: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+}
+.rss-link a { color: var(--primary-dark); border-bottom: 1px solid currentColor; }

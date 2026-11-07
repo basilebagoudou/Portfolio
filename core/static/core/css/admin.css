@@ -1,0 +1,35 @@
+/* Back-office : quelques touches aux couleurs du portfolio. */
+:root, html[data-theme="light"] {
+    --primary: #d97757;
+    --secondary: #c05f3f;
+    --accent: #f3c9b6;
+    --header-bg: #1f1e1d;
+    --link-fg: #c05f3f;
+    --link-hover-color: #9e4a2f;
+    --button-bg: #d97757;
+    --button-hover-bg: #c05f3f;
+    --default-button-bg: #c05f3f;
+    --default-button-hover-bg: #9e4a2f;
+}
+textarea.md-editor {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    width: 100%;
+    max-width: 900px;
+}
+.stats { margin: 0 0 24px; }
+.stats h3 { margin: 18px 0 8px; font-size: 13px; text-transform: uppercase; letter-spacing: .05em; color: var(--body-quiet-color); }
+.stats-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.stats-kpis div { border: 1px solid var(--hairline-color); border-radius: 8px; padding: 12px 14px; }
+.stats-kpis strong { display: block; font-size: 26px; color: var(--primary); }
+.stats-kpis span { color: var(--body-quiet-color); font-size: 12px; }
+.stats-jours { display: flex; align-items: flex-end; gap: 3px; height: 130px; border-bottom: 1px solid var(--hairline-color); padding-bottom: 18px; position: relative; }
+.stats-jour { flex: 1; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; position: relative; }
+.stats-barre { width: 100%; max-width: 26px; background: var(--primary); border-radius: 3px 3px 0 0; min-height: 2px; }
+.stats-date { position: absolute; bottom: -17px; font-size: 9px; color: var(--body-quiet-color); }
+.stats-tops { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px 24px; }
+.stats-tops ol { margin: 0; padding: 0; list-style: none; }
+.stats-tops li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; border-bottom: 1px dashed var(--hairline-color); overflow-wrap: anywhere; }
+.stats-tops b { color: var(--primary); }
+.stats-note { color: var(--body-quiet-color); font-size: 12px; margin-top: 12px; }

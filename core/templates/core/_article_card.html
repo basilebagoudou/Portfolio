@@ -1,4 +1,5 @@
 <article class="article-card fam-line-{{ a.sujets.0.famille }}">
+    {% if not a.publie %}<p class="draft-badge">Brouillon</p>{% endif %}
     <div class="article-meta">
         <span>{% include "core/_t.html" with t=a.date_txt only %}</span>
         <span>{% include "core/_t.html" with t=a.lecture only %}</span>

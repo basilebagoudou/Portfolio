@@ -85,3 +85,7 @@ production redéploie le site.
 Le site reste aussi léger qu'une page statique, mais le contenu est devenu une source de données
 unique dont le reste se déduit. Pour un profil data, c'est cohérent : **on écrit les faits une fois,
 on calcule le reste**.
+
+*Mise à jour : depuis, le site a un back-office pour écrire ces articles. Il utilise une base
+Postgres, servie sur une adresse séparée du portfolio. Le contenu des pages, lui, vit toujours dans
+`content.py`.*
