@@ -113,3 +113,69 @@ if (bandeau && !mouvementReduit) {
     }, { threshold: 0.4 });
     observateurChiffres.observe(bandeau);
 }
+
+// ===== MATRICE : « tirer un fil » =====
+// Un clic sur une compétence de la matrice met en évidence les projets qui
+// l'utilisent (data-tech="Python|pandas|…") et estompe les autres ; un
+// second clic, ou Échap, annule le filtre.
+const matrice = document.querySelector('.heatmap');
+const cartesProjets = document.querySelectorAll('[data-tech]:is(.case, .project-card)');
+
+function filtrerProjets(tech) {
+    matrice.classList.toggle('is-filtering', Boolean(tech));
+    matrice.querySelectorAll('tbody tr').forEach(function(tr) {
+        const choisi = tr.dataset.tech === tech;
+        tr.classList.toggle('is-picked', choisi);
+        tr.querySelector('.thread-btn').setAttribute('aria-pressed', choisi);
+    });
+    const trouves = [];
+    cartesProjets.forEach(function(carte) {
+        const utilise = tech && carte.dataset.tech.split('|').includes(tech);
+        carte.classList.toggle('is-lit', Boolean(utilise));
+        carte.classList.toggle('is-dimmed', Boolean(tech) && !utilise);
+        if (utilise) trouves.push(carte);
+    });
+    afficherResultat(tech, trouves);
+}
+
+// Résumé sous la matrice (les cartes sont plus haut dans la page) :
+// « Python → 4 projets : Home Credit, … » avec un lien vers chaque carte.
+function afficherResultat(tech, cartes) {
+    const zone = matrice.querySelector('.thread-result');
+    zone.textContent = '';
+    if (!tech) return;
+    const langue = document.documentElement.lang === 'en' ? 'en' : 'fr';
+    const n = cartes.length;
+    const entete = langue === 'en'
+        ? tech + ' → ' + n + ' project' + (n > 1 ? 's' : '') + ': '
+        : tech + ' → ' + n + ' projet' + (n > 1 ? 's' : '') + ' : ';
+    zone.append(entete);
+    cartes.forEach(function(carte, i) {
+        const titre = carte.querySelector('h3 [data-lang="' + langue + '"]');
+        const lien = document.createElement('a');
+        lien.href = '#' + carte.id;
+        lien.textContent = (titre ? titre.textContent : carte.id).split(' — ')[0];
+        if (i) zone.append(', ');
+        zone.append(lien);
+    });
+}
+
+if (matrice) {
+    let filtreActif = null;
+    matrice.querySelectorAll('.thread-btn').forEach(function(bouton) {
+        bouton.addEventListener('click', function() {
+            const tech = bouton.closest('tr').dataset.tech;
+            filtreActif = filtreActif === tech ? null : tech;
+            filtrerProjets(filtreActif);
+        });
+    });
+    boutonsLangue.forEach(function(bouton) {
+        bouton.addEventListener('click', function() { filtrerProjets(filtreActif); });
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && filtreActif) {
+            filtreActif = null;
+            filtrerProjets(null);
+        }
+    });
+}

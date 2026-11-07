@@ -177,9 +177,35 @@
                 <span data-lang="fr">Projets data</span>
                 <span data-lang="en" hidden>Data projects</span>
             </h2>
+            <figure class="overview">
+                <figcaption>
+                    <span data-lang="fr">Vue d'ensemble — un bloc par technologie, coloré par famille de compétences</span>
+                    <span data-lang="en" hidden>Overview — one block per technology, coloured by skill family</span>
+                </figcaption>
+                <div class="overview-skyline" style="--max: {{ max_tech }}">
+                    {% for p in projets_tous %}
+                    <a class="overview-col" href="#{{ p.ancre }}" style="--i: {{ forloop.counter0 }}" title="{{ p.tech|join:', ' }}">
+                        <span class="overview-count">{{ p.tech|length }}</span>
+                        <span class="overview-stack">
+                            {% for b in p.blocs %}<span class="overview-block fam-{{ b.famille }}" title="{{ b.tech }}"></span>{% endfor %}
+                        </span>
+                        <span class="overview-name">{% include "core/_t.html" with t=p.court only %}</span>
+                    </a>
+                    {% endfor %}
+                    <svg class="overview-wave" viewBox="0 0 600 14" preserveAspectRatio="none" aria-hidden="true">
+                        <path d="M0 7 Q 25 0 50 7 T 100 7 T 150 7 T 200 7 T 250 7 T 300 7 T 350 7 T 400 7 T 450 7 T 500 7 T 550 7 T 600 7"/>
+                    </svg>
+                </div>
+                <div class="overview-legend">
+                    {% for c in competences %}<span><i class="sw fam-{{ c.famille }}"></i>{% include "core/_t.html" with t=c.titre only %}</span>{% endfor %}
+                    <span class="overview-hint"><span data-lang="fr">hauteur = taille de la stack · clique une colonne</span><span data-lang="en" hidden>height = stack size · click a column</span></span>
+                </div>
+            </figure>
+
             <div class="data-projects">
                 {% for projet in projets_data %}
-                <article class="case">
+                <article class="case" id="{{ projet.ancre }}" data-tech="{{ projet.data_tech }}">
+                    <div class="signature" aria-hidden="true">{% for seg in projet.signature %}<span class="fam-{{ seg.famille }}" style="flex-basis: {{ seg.pct|stringformat:'s' }}%"></span>{% endfor %}</div>
                     <div class="case-main">
                         <span class="project-tag">{% include "core/_t.html" with t=projet.statut only %}</span>
                         <h3>{% include "core/_t.html" with t=projet.titre only %}</h3>
@@ -281,7 +307,8 @@
             </h3>
             <div class="projects-grid">
                 {% for projet in projets_ing %}
-                <article class="project-card">
+                <article class="project-card" id="{{ projet.ancre }}" data-tech="{{ projet.data_tech }}">
+                    <div class="signature" aria-hidden="true">{% for seg in projet.signature %}<span class="fam-{{ seg.famille }}" style="flex-basis: {{ seg.pct|stringformat:'s' }}%"></span>{% endfor %}</div>
                     <div class="project-header">
                         <h3>{% include "core/_t.html" with t=projet.titre only %}</h3>
                         <span class="project-tag">{% include "core/_t.html" with t=projet.tag only %}</span>
@@ -315,6 +342,10 @@
                     {% for categorie in competences %}
                     <div class="skills-category{% if categorie.accent %} skills-category--accent{% endif %}">
                         <h3>{% include "core/_t.html" with t=categorie.titre only %}</h3>
+                        <div class="coverage">
+                            <span class="coverage-bar"><span class="fam-{{ categorie.famille }}" style="--w: {{ categorie.couverture.pct }}%"></span></span>
+                            <span class="coverage-label"><span data-lang="fr">{{ categorie.couverture.nb }} projet{{ categorie.couverture.nb|pluralize }} sur {{ categorie.couverture.total }}</span><span data-lang="en" hidden>{{ categorie.couverture.nb }} of {{ categorie.couverture.total }} project{{ categorie.couverture.total|pluralize }}</span></span>
+                        </div>
                         <div class="skills-grid">
                             {% for item in categorie.items %}
                             <div class="skill-card">{% if item.fr %}{% include "core/_t.html" with t=item only %}{% else %}{{ item }}{% endif %}</div>
@@ -339,8 +370,8 @@
                             </thead>
                             <tbody>
                                 {% for ligne in matrice.lignes %}
-                                <tr>
-                                    <th scope="row">{{ ligne.tech }}</th>
+                                <tr data-tech="{{ ligne.tech }}">
+                                    <th scope="row"><button type="button" class="thread-btn" aria-pressed="false">{{ ligne.tech }}</button></th>
                                     {% for actif in ligne.cellules %}<td class="{% if actif %}on{% endif %}"><span class="sr-only">{% if actif %}✓{% endif %}</span></td>{% endfor %}
                                 </tr>
                                 {% endfor %}
@@ -351,6 +382,11 @@
                         <span data-lang="fr">Calculée automatiquement à partir des projets de cette page.</span>
                         <span data-lang="en" hidden>Computed automatically from the projects on this page.</span>
                     </p>
+                    <p class="heatmap-note thread-hint">
+                        <span data-lang="fr">Astuce : clique une compétence pour voir les projets qui l'utilisent.</span>
+                        <span data-lang="en" hidden>Tip: click a skill to highlight the projects that use it.</span>
+                    </p>
+                    <p class="thread-result" aria-live="polite"></p>
                 </figure>
             </div>
         </div>

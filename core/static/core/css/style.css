@@ -1528,3 +1528,207 @@ section.visible .roc-curve {
         gap: 2rem;
     }
 }
+
+/* ===== FAMILLES DE COMPÉTENCES (couleurs partagées) ===== */
+:root {
+    --fam-data: var(--primary);
+    --fam-bd: #3a8a85;
+    --fam-ing: #4a5568;
+}
+.fam-data { background: var(--fam-data); }
+.fam-bd   { background: var(--fam-bd); }
+.fam-ing  { background: var(--fam-ing); }
+
+/* ===== SIGNATURE DE PROJET : bande colorée en tête de carte ===== */
+.case, .project-card {
+    position: relative;
+    overflow: hidden;
+}
+.signature {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    display: flex;
+}
+.signature span {
+    flex-grow: 0;
+    flex-shrink: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.9s cubic-bezier(.2,.7,.2,1);
+}
+.signature span + span { border-left: 2px solid var(--bg); }
+section.visible .signature span { transform: scaleX(1); }
+
+/* ===== VUE D'ENSEMBLE DES PROJETS ===== */
+.overview {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.4rem 1.6rem 1.1rem;
+    margin-bottom: 2.5rem;
+}
+.overview figcaption {
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+.overview-skyline {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: clamp(0.8rem, 4vw, 3rem);
+    min-height: calc(var(--max) * 26px + 3.5rem);
+}
+.overview-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: clamp(56px, 12vw, 110px);
+    cursor: pointer;
+}
+.overview-count {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+.overview-stack {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 3px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.overview-block {
+    height: 22px;
+    border-radius: 4px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.4s ease, transform 0.4s ease, filter 0.2s ease;
+}
+section.visible .overview-block {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(var(--i) * 0.12s);
+}
+.overview-col:hover .overview-block,
+.overview-col:focus-visible .overview-block { filter: brightness(1.12); }
+.overview-col:hover .overview-name { color: var(--primary-dark); }
+.overview-name {
+    font-size: 0.78rem;
+    text-align: center;
+    line-height: 1.25;
+    min-height: 2.5em;
+    color: var(--text-main);
+    transition: color 0.2s ease;
+}
+.overview-skyline { position: relative; }
+.overview-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(2.5 * 0.78rem + 0.4rem - 5px);
+    width: 100%;
+    height: 14px;
+    pointer-events: none;
+}
+.overview-wave path {
+    fill: none;
+    stroke: var(--fam-bd);
+    stroke-width: 2.5;
+    opacity: 0.55;
+}
+.overview-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem 1.2rem;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 0.8rem;
+}
+.overview-legend .sw { margin-right: 0.35rem; }
+.overview-hint {
+    margin-left: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+}
+
+/* ===== COUVERTURE DES FAMILLES DE COMPÉTENCES ===== */
+.coverage {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: -0.4rem 0 1.1rem 1rem;
+}
+.coverage-bar {
+    flex: 1;
+    max-width: 260px;
+    height: 8px;
+    border-radius: 99px;
+    background: var(--border);
+    overflow: hidden;
+}
+.coverage-bar span {
+    display: block;
+    height: 100%;
+    width: 0;
+    border-radius: 99px;
+    transition: width 1s cubic-bezier(.2,.7,.2,1) 0.2s;
+}
+section.visible .coverage-bar span { width: var(--w); }
+.coverage-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+/* ===== MATRICE : « tirer un fil » pour filtrer les projets ===== */
+.thread-btn {
+    all: unset;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0 0.2rem;
+}
+.thread-btn:focus-visible { outline: 2px solid var(--primary); }
+.heatmap tr.is-picked th { color: var(--primary-dark); font-weight: 700; }
+.heatmap tr.is-picked td.on { background: var(--primary-dark); }
+.heatmap.is-filtering tr:not(.is-picked) { opacity: 0.45; }
+.thread-hint { font-style: normal; }
+.thread-result {
+    margin-top: 0.4rem;
+    font-size: 0.82rem;
+    color: var(--text-main);
+}
+.thread-result:empty { display: none; }
+.thread-result a {
+    color: var(--primary-dark);
+    border-bottom: 1px solid currentColor;
+}
+
+.case, .project-card {
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.is-dimmed { opacity: 0.35; }
+.is-lit {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(217, 119, 87, 0.18);
+}
+
+@media (max-width: 560px) {
+    .overview { padding: 1.1rem; }
+    .overview-skyline { gap: 0.4rem; min-height: calc(var(--max) * 18px + 3.5rem); }
+    .overview-col { flex: 1 1 0; width: auto; min-width: 0; }
+    .overview-block { height: 14px; }
+    .overview-name { font-size: 0.68rem; }
+    .overview-hint { margin-left: 0; }
+    .overview-wave { bottom: calc(2.5 * 0.68rem + 0.4rem - 5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .signature span, .overview-block, .coverage-bar span { transition: none; }
+}
