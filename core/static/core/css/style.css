@@ -2008,7 +2008,7 @@ nav ul li a.is-active { color: var(--primary); }
 .article-more { margin-top: 4.5rem; border-top: 1px solid var(--border); padding-top: 2.5rem; }
 
 @media (max-width: 900px) {
-    .contact-layout, .article-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .contact-layout, .article-layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
     .article-aside { position: static; }
 }
 @media (max-width: 560px) {
