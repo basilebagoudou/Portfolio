@@ -379,23 +379,15 @@
 
             <div class="learning">
                 <h3 class="sub-title">
-                    <span data-lang="fr">Programme GCI World 2026</span>
-                    <span data-lang="en" hidden>GCI World 2026 program</span>
+                    <span data-lang="fr">Programme GCI World 2026 — {{ gci_modules|length }} modules</span>
+                    <span data-lang="en" hidden>GCI World 2026 program — {{ gci_modules|length }} modules</span>
                 </h3>
-                <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="{{ gci_total }}" aria-valuenow="{{ gci_suivis }}">
-                    <div class="progress-head">
-                        <span><span data-lang="fr">Modules suivis</span><span data-lang="en" hidden>Modules followed</span></span>
-                        <span class="progress-count">{{ gci_suivis }} / {{ gci_total }}</span>
-                    </div>
-                    <div class="progress-track"><span class="progress-fill" style="--p: {{ gci_pourcent }}%"></span></div>
-                </div>
                 <div class="learning-grid">
                     {% for module in gci_modules %}
-                    <div class="learning-card{% if module.a_venir %} learning-card--next{% endif %}">
+                    <div class="learning-card">
                         <span class="learning-num">{{ module.num|stringformat:"02d" }}</span>
                         <span class="learning-name">
                             {% include "core/_t.html" with t=module.titre only %}
-                            {% if module.a_venir %}<span class="learning-date"><span data-lang="fr">à venir · </span><span data-lang="en" hidden>coming · </span>{% include "core/_t.html" with t=module.date only %}</span>{% endif %}
                         </span>
                     </div>
                     {% endfor %}

@@ -196,12 +196,12 @@ PARCOURS = [
                   "Matsuo-Iwasawa Lab, The University of Tokyo (online)"),
         "texte": t("Programme international : NumPy, pandas, visualisation, "
                    "apprentissage supervisé, évaluation de modèles, feature engineering, "
-                   "data science appliquée au marketing, compétition de machine learning. "
-                   "À venir : SQL, apprentissage non supervisé, séries temporelles.",
+                   "data science appliquée au marketing, SQL, apprentissage non supervisé, "
+                   "séries temporelles, compétition de machine learning.",
                    "International program: NumPy, pandas, visualization, supervised "
                    "learning, model evaluation, feature engineering, data science for "
-                   "marketing, machine learning competition. Coming next: SQL, unsupervised "
-                   "learning, time series."),
+                   "marketing, SQL, unsupervised learning, time series, machine learning "
+                   "competition."),
         "en_cours": True,
     },
     {
@@ -236,16 +236,11 @@ GCI_MODULES = [
     {"num": 7, "titre": t("Compétition & projet final", "Competition & Final Assignment")},
     {"num": 8, "titre": t("Feature engineering", "Feature Engineering")},
     {"num": 9, "titre": t("Marketing et data science", "Marketing & Data Science")},
-    # Modules à venir (dates des sessions live). Passer "a_venir" à False une fois suivis.
-    {"num": 10, "titre": t("SQL"), "date": t("19 nov.", "Nov 19"), "a_venir": True},
-    {"num": 11, "titre": t("Apprentissage non supervisé", "Unsupervised Learning"),
-     "date": t("26 nov.", "Nov 26"), "a_venir": True},
-    {"num": 12, "titre": t("Analyse de séries temporelles", "Time Series Analysis"),
-     "date": t("3 déc.", "Dec 3"), "a_venir": True},
-    {"num": 13, "titre": t("Session invitée", "Guest Session"),
-     "date": t("10 déc.", "Dec 10"), "a_venir": True},
-    {"num": 14, "titre": t("Contenus spéciaux", "Special Contents"),
-     "date": t("17 déc.", "Dec 17"), "a_venir": True},
+    {"num": 10, "titre": t("SQL")},
+    {"num": 11, "titre": t("Apprentissage non supervisé", "Unsupervised Learning")},
+    {"num": 12, "titre": t("Analyse de séries temporelles", "Time Series Analysis")},
+    {"num": 13, "titre": t("Session invitée", "Guest Session")},
+    {"num": 14, "titre": t("Contenus spéciaux", "Special Contents")},
 ]
 
 COMPETENCES = [
