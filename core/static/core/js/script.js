@@ -179,3 +179,69 @@ if (matrice) {
         }
     });
 }
+
+// ===== FORMULAIRE DE CONTACT =====
+// Envoi en arrière-plan (fetch) pour rester sur la page ; sans JavaScript, le
+// formulaire est posté normalement et le serveur redirige vers #contact.
+const formContact = document.querySelector('.contact-form');
+const MESSAGES_CONTACT = {
+    envoi:    { fr: 'Envoi en cours…', en: 'Sending…' },
+    ok:       { fr: 'Merci, votre message est bien parti. Je vous réponds rapidement.',
+                en: "Thanks, your message has been sent. I'll get back to you soon." },
+    invalide: { fr: 'Vérifiez les champs en rouge (message de 10 caractères minimum).',
+                en: 'Please check the fields in red (message: 10 characters minimum).' },
+    erreur:   { fr: "L'envoi a échoué. Écrivez-moi directement à basile2bagoudou@gmail.com.",
+                en: 'Sending failed. Please email me directly at basile2bagoudou@gmail.com.' }
+};
+
+if (formContact) {
+    const statut = formContact.querySelector('.form-status');
+    const bouton = formContact.querySelector('.contact-submit');
+
+    function afficherStatut(cle) {
+        statut.className = 'form-status is-' + cle;
+        statut.textContent = '';
+        ['fr', 'en'].forEach(function(langue) {
+            const span = document.createElement('span');
+            span.dataset.lang = langue;
+            span.textContent = MESSAGES_CONTACT[cle][langue];
+            span.toggleAttribute('hidden', document.documentElement.lang !== langue);
+            statut.append(span);
+        });
+    }
+
+    function marquerChamps(noms) {
+        formContact.querySelectorAll('.field').forEach(function(champ) {
+            const saisie = champ.querySelector('input, textarea');
+            champ.classList.toggle('is-invalid', noms.includes(saisie.name));
+        });
+    }
+
+    formContact.addEventListener('submit', function(e) {
+        e.preventDefault();
+        formContact.querySelector('[name="langue"]').value = document.documentElement.lang === 'en' ? 'en' : 'fr';
+        // Vérification côté navigateur d'abord (champs vides, email mal formé…).
+        const invalides = [...formContact.querySelectorAll('.field input, .field textarea')]
+            .filter(function(el) { return !el.checkValidity(); })
+            .map(function(el) { return el.name; });
+        marquerChamps(invalides);
+        if (invalides.length) { afficherStatut('invalide'); return; }
+
+        bouton.disabled = true;
+        afficherStatut('envoi');
+        fetch(formContact.action, {
+            method: 'POST',
+            body: new FormData(formContact),
+            headers: { 'Accept': 'application/json' },
+            credentials: 'same-origin'
+        })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                marquerChamps(data.champs || []);
+                afficherStatut(MESSAGES_CONTACT[data.statut] ? data.statut : 'erreur');
+                if (data.statut === 'ok') formContact.reset();
+            })
+            .catch(function() { afficherStatut('erreur'); })
+            .finally(function() { bouton.disabled = false; });
+    });
+}

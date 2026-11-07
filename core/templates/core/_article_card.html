@@ -1,0 +1,11 @@
+<article class="article-card fam-line-{{ a.sujets.0.famille }}">
+    <div class="article-meta">
+        <span>{% include "core/_t.html" with t=a.date_txt only %}</span>
+        <span>{% include "core/_t.html" with t=a.lecture only %}</span>
+    </div>
+    <h2 class="article-card-title"><a href="{% url 'article' a.slug %}">{% include "core/_t.html" with t=a.titre only %}</a></h2>
+    <p class="article-card-resume">{% include "core/_t.html" with t=a.resume only %}</p>
+    <ul class="article-tags" aria-label="Sujets / Topics">
+        {% for s in a.sujets %}<li><i class="sw fam-{{ s.famille }}"></i>{% include "core/_t.html" with t=s.label only %}</li>{% endfor %}
+    </ul>
+</article>

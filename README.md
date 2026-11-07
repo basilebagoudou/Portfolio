@@ -14,7 +14,8 @@ with **Django** and deployed on **Vercel**: https://basile-bagoudou.vercel.app
 | Projects | Data case studies (context / approach / real challenge, with charts) + engineering projects |
 | Skills | Skill groups + a skills × projects matrix computed from the project data |
 | Journey | Timeline (L3 at IAI, GCI World 2026, CS50P, CENETI) + GCI modules followed |
-| Contact | Internship pitch, email, GitHub, LinkedIn |
+| Contact | Internship pitch, email, GitHub, LinkedIn + contact form (sent by email) |
+| `/articles/` | Articles list; each article at `/articles/<slug>/` |
 
 ## Project structure
 
@@ -26,6 +27,9 @@ Portfolio/
 ├── portfolio_site/          # Django project (settings, urls, wsgi)
 └── core/                    # the portfolio app
     ├── content.py           # ALL the content (FR + EN) — edit this to update the site
+    ├── articles/            # article bodies in Markdown: <slug>.fr.md / <slug>.en.md
+    ├── articles.py          # loads + renders the articles (reading time, dates)
+    ├── forms.py             # contact form (honeypot + signed timestamp against spam)
     ├── views.py             # computes key figures and the skills × projects matrix
     ├── templates/core/      # index.html + _t.html (bilingual text helper)
     └── static/core/         # style.css, script.js
@@ -33,6 +37,13 @@ Portfolio/
 
 There is no database: the content lives in `core/content.py` as Python data. Each
 translated text is a `{"fr": ..., "en": ...}` pair built with the `t()` helper.
+
+## Writing an article
+
+1. Add an entry to `ARTICLES` in `core/content.py` (slug, date, title, summary, topics, project).
+2. Write `core/articles/<slug>.fr.md` and `core/articles/<slug>.en.md`.
+
+The reading time is computed from the text; the list is sorted by date.
 
 ## How the translation system works
 
@@ -66,3 +77,8 @@ is needed. Optional environment variables:
 | `DJANGO_SECRET_KEY` | Secret key (recommended) |
 | `DJANGO_ALLOWED_HOSTS` | Extra hosts, e.g. a custom domain (comma-separated) |
 | `DJANGO_DEBUG` | `1` to enable debug (never in production) |
+| `EMAIL_HOST_USER` | Gmail address that sends the contact-form emails |
+| `EMAIL_HOST_PASSWORD` | Google **app password** for that address (required for the form) |
+| `CONTACT_EMAIL` | Where messages are delivered (default: basile2bagoudou@gmail.com) |
+
+Locally (debug on, no password set), contact messages are printed in the terminal.

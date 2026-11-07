@@ -1,0 +1,34 @@
+{% extends "core/base.html" %}
+
+{% block meta %}
+    <title>Articles — Basile Bagoudou, élève ingénieur en Data</title>
+    <meta name="description" content="Notes de data de Basile Bagoudou : ce que j'apprends sur mes projets (machine learning, évaluation de modèles, Python, Django), avec le code.">
+    <meta property="og:title" content="Articles — Basile Bagoudou">
+    <meta property="og:type" content="website">
+{% endblock %}
+
+{% block content %}
+    <main class="page">
+        <section class="page-section">
+            <div class="container">
+                <p class="kicker">Articles</p>
+                <h1 class="page-title">
+                    <span data-lang="fr">Notes de data</span>
+                    <span data-lang="en" hidden>Data notes</span>
+                </h1>
+                <p class="page-intro" data-lang="fr">
+                    Ce que j'apprends en travaillant sur mes projets : vraies données, choix de
+                    méthode, pièges à éviter. Avec le code.
+                </p>
+                <p class="page-intro" data-lang="en" hidden>
+                    What I learn while working on my projects: real data, method choices,
+                    pitfalls to avoid. With the code.
+                </p>
+
+                <div class="articles-grid">
+                    {% for a in articles %}{% include "core/_article_card.html" with a=a only %}{% endfor %}
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

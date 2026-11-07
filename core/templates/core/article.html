@@ -1,0 +1,75 @@
+{% extends "core/base.html" %}
+
+{% block meta %}
+    <title>{{ article.titre.fr }} — Basile Bagoudou</title>
+    <meta name="description" content="{{ article.resume.fr }}">
+    <meta property="og:title" content="{{ article.titre.fr }}">
+    <meta property="og:description" content="{{ article.resume.fr }}">
+    <meta property="og:type" content="article">
+{% endblock %}
+
+{% block content %}
+    <main class="page">
+        <section class="page-section">
+            <div class="container">
+                <a href="{% url 'articles' %}" class="back-link">
+                    <span data-lang="fr">← Tous les articles</span><span data-lang="en" hidden>← All articles</span>
+                </a>
+                <p class="kicker">
+                    {% include "core/_t.html" with t=article.date_txt only %} ·
+                    {% include "core/_t.html" with t=article.lecture only %}
+                </p>
+                <h1 class="page-title article-title">{% include "core/_t.html" with t=article.titre only %}</h1>
+                <p class="page-intro">{% include "core/_t.html" with t=article.resume only %}</p>
+                <p class="article-byline">
+                    <span data-lang="fr">Par</span><span data-lang="en" hidden>By</span>
+                    <a href="{% url 'accueil' %}">Basile Bagoudou</a>
+                </p>
+
+                <div class="article-layout">
+                    <div class="prose">
+                        <div data-lang="fr">{{ article.corps.fr }}</div>
+                        <div data-lang="en" hidden>{{ article.corps.en }}</div>
+                    </div>
+
+                    <aside class="article-aside">
+                        <p class="kicker">
+                            <span data-lang="fr">Sujets</span><span data-lang="en" hidden>Topics</span>
+                        </p>
+                        <ul class="aside-topics">
+                            {% for s in article.sujets %}
+                            <li class="aside-topic topic-{{ s.famille }}">{% include "core/_t.html" with t=s.label only %}</li>
+                            {% endfor %}
+                        </ul>
+                        <p class="kicker">
+                            <span data-lang="fr">Le projet</span><span data-lang="en" hidden>The project</span>
+                        </p>
+                        <a href="{% url 'accueil' %}#{{ article.projet.ancre }}" class="aside-project">
+                            {% include "core/_t.html" with t=article.projet.titre only %} →
+                        </a>
+                        <div class="aside-cta">
+                            <p>
+                                <span data-lang="fr">Un stage data à proposer ?</span>
+                                <span data-lang="en" hidden>Got a data internship to offer?</span>
+                            </p>
+                            <a href="{% url 'accueil' %}#contact" class="btn-primary">
+                                <span data-lang="fr">Me contacter</span><span data-lang="en" hidden>Contact me</span>
+                            </a>
+                        </div>
+                    </aside>
+                </div>
+
+                {% if autres %}
+                <div class="article-more">
+                    <h2 class="sub-title">
+                        <span data-lang="fr">À lire aussi</span><span data-lang="en" hidden>Read next</span>
+                    </h2>
+                    <div class="articles-grid">
+                        {% for a in autres %}{% include "core/_article_card.html" with a=a only %}{% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

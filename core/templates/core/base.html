@@ -1,0 +1,60 @@
+{% load static %}<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
+    <title>Basile Bagoudou — Élève ingénieur en Data</title>
+    <meta name="description" content="Basile Bagoudou — élève ingénieur en data (IAI Togo, GCI World 2026 – Université de Tokyo). Python, pandas, scikit-learn, SQL, Django. Recherche un stage data pour mai 2027.">
+    <meta property="og:title" content="Basile Bagoudou — Élève ingénieur en Data">
+    <meta property="og:description" content="Python, pandas, scikit-learn, SQL, Django. Stage data recherché pour mai 2027.">
+    <meta property="og:type" content="website">
+    {% endblock %}
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23d97757'/><rect x='7' y='17' width='4' height='8' rx='1' fill='white'/><rect x='14' y='11' width='4' height='14' rx='1' fill='white'/><rect x='21' y='7' width='4' height='18' rx='1' fill='white'/></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body class="page-{{ page|default:'accueil' }}">
+    <header>
+        <nav>
+            <a href="{% url 'accueil' %}" class="logo">Portfolio</a>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="{{ ancre }}#about"><span data-lang="fr">Profil</span><span data-lang="en" hidden>Profile</span></a></li>
+                    <li><a href="{{ ancre }}#projects"><span data-lang="fr">Projets</span><span data-lang="en" hidden>Projects</span></a></li>
+                    <li><a href="{{ ancre }}#skills"><span data-lang="fr">Compétences</span><span data-lang="en" hidden>Skills</span></a></li>
+                    <li><a href="{{ ancre }}#parcours"><span data-lang="fr">Parcours</span><span data-lang="en" hidden>Journey</span></a></li>
+                    <li><a href="{% url 'articles' %}"{% if page == 'articles' %} class="is-active" aria-current="page"{% endif %}>Articles</a></li>
+                    <li><a href="{{ ancre }}#contact">Contact</a></li>
+                </ul>
+                <div class="lang-toggle" role="group" aria-label="Changer de langue / Switch language">
+                    <button type="button" class="lang-option" data-lang-btn="fr">FR</button>
+                    <button type="button" class="lang-option" data-lang-btn="en">EN</button>
+                </div>
+                <button class="menu-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+{% block content %}{% endblock %}
+
+    <svg class="footer-waves" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+        <path class="w1" d="M0 38 C 120 18, 240 18, 360 34 S 600 56, 720 40 S 960 14, 1080 30 S 1320 52, 1440 34 V 90 H 0 Z"/>
+        <path class="w2" d="M0 52 C 140 36, 260 40, 380 54 S 620 70, 760 54 S 1000 34, 1120 48 S 1340 66, 1440 52 V 90 H 0 Z"/>
+        <path class="w3" d="M0 68 C 160 56, 300 60, 420 70 S 660 82, 800 70 S 1040 56, 1160 66 S 1360 80, 1440 70 V 90 H 0 Z"/>
+    </svg>
+    <footer>
+        <div class="container">
+            <p data-lang="fr">© {{ annee }} · Conçu & développé par <strong>Basile Bagoudou</strong></p>
+            <p data-lang="en" hidden>© {{ annee }} · Designed & built by <strong>Basile Bagoudou</strong></p>
+        </div>
+    </footer>
+    <script src="{% static 'core/js/script.js' %}"></script>
+</body>
+</html>

@@ -1,10 +1,22 @@
 from collections import Counter
 from datetime import date
 
-from django.shortcuts import render
+import logging
 
+from django.conf import settings
+from django.core.mail import EmailMessage
+from django.http import Http404, JsonResponse
+from django.shortcuts import redirect, render
+from django.urls import reverse
+from django.views.decorators.http import require_POST
+
+from . import articles as articles_mod
 from . import content
 from .content import t
+from .forms import ContactForm, jeton_horodatage
+
+logger = logging.getLogger(__name__)
+STATUTS_CONTACT = {"ok", "erreur", "invalide"}
 
 
 def _nom_court(projet):
@@ -106,4 +118,62 @@ def accueil(request):
         "competences": [dict(c, famille=f, couverture=cv) for c, f, cv in
                         zip(content.COMPETENCES, FAMILLES, _couverture(projets))],
         "annee": date.today().year,
+        "ancre": "",
+        "page": "accueil",
+        "contact_ts": jeton_horodatage(),
+        "contact_statut": request.GET.get("contact") if request.GET.get("contact") in STATUTS_CONTACT else "",
     })
+
+
+def _envoyer_message(form):
+    """Envoie le message du formulaire par email ; renvoie True si c'est parti."""
+    if not settings.EMAIL_CONFIGURE:
+        logger.error("Formulaire de contact : EMAIL_HOST_PASSWORD absent, message non envoyé.")
+        return False
+    d = form.cleaned_data
+    email = EmailMessage(
+        subject=f"[Portfolio] Message de {d['nom']}",
+        body=f"Nom : {d['nom']}\nEmail : {d['email']}\nLangue : {d.get('langue') or 'fr'}\n\n{d['message']}",
+        from_email=settings.DEFAULT_FROM_EMAIL,
+        to=[settings.CONTACT_EMAIL],
+        reply_to=[d["email"]],
+    )
+    try:
+        email.send()
+        return True
+    except Exception:  # SMTP indisponible, identifiants refusés…
+        logger.exception("Formulaire de contact : échec de l'envoi")
+        return False
+
+
+@require_POST
+def contact(request):
+    """Reçoit le formulaire. Répond en JSON (envoi en JS) ou redirige (sans JS)."""
+    form = ContactForm(request.POST)
+    if not form.is_valid():
+        statut = "invalide"
+    elif form.est_robot():
+        statut = "ok"  # on ne dit pas au robot qu'il a été repéré
+    else:
+        statut = "ok" if _envoyer_message(form) else "erreur"
+
+    if "application/json" in request.headers.get("Accept", ""):
+        codes = {"ok": 200, "invalide": 400, "erreur": 502}
+        return JsonResponse({"statut": statut, "champs": list(form.errors)}, status=codes[statut])
+    return redirect(f"{reverse('accueil')}?contact={statut}#contact")
+
+
+def _contexte_page(**extra):
+    return {"annee": date.today().year, "ancre": reverse("accueil"), "page": "articles", **extra}
+
+
+def articles(request):
+    return render(request, "core/articles.html", _contexte_page(articles=articles_mod.tous()))
+
+
+def article(request, slug):
+    a = articles_mod.un(slug)
+    if a is None:
+        raise Http404("Article introuvable")
+    autres = [x for x in articles_mod.tous() if x["slug"] != slug]
+    return render(request, "core/article.html", _contexte_page(article=a, autres=autres))
