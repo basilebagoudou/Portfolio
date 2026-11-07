@@ -1,69 +1,67 @@
 # Portfolio
 
-Personal portfolio of **Basile Bagoudou** — software engineering student at IAI Togo.
-A static, bilingual (French/English) single-page site built with plain HTML, CSS and
-JavaScript, with no framework and no build step.
-
-**Live:** [basilebagoudou.github.io/Portfolio](https://basilebagoudou.github.io/Portfolio/)
+Personal portfolio of **Basile Bagoudou** — 3rd-year Software Engineering student at
+IAI Togo, focused on data science. Bilingual (French/English) single-page site built
+with **Django** and deployed on **Vercel**.
 
 ## Sections
 
 | Section | Content |
 |---------|---------|
-| Hero | Name, current studies, short pitch, calls to action |
-| About | Background, CENETI internship, key details (education, university, email, availability) |
-| Skills | Languages (PHP, JavaScript, Python), Web (HTML, CSS), Databases (MySQL, PostgreSQL), Tools (Git, GitHub, VS Code, Linux) |
-| Projects | CENETI Platform, Optima, and a showcase website, each with its stack and links |
+| Hero | Name, data-science focus, short pitch, "right now" status |
+| About | Background, GCI World 2026, CS50P, CENETI internship, key details |
+| Journey | Timeline (L3 at IAI, GCI World 2026, CS50P, CENETI) + GCI modules followed |
+| Skills | Data & AI, web development, databases, tools |
+| Projects | Home Credit default risk (GCI), CENETI Platform, Optima, coffee shop website |
 | Contact | Email, GitHub and LinkedIn links |
 
-## Features
+## Project structure
 
-- **Bilingual FR/EN** with a two-option switch in the navbar; the choice is remembered
-between visits
-- **Sticky header** that changes appearance once the page is scrolled past 50px
-- **Reveal on scroll** — sections fade in through an `IntersectionObserver`
-- **Mobile menu** — burger navigation that closes itself when a link is clicked
-- **Responsive** layout, [Jost](https://fonts.google.com/specimen/Jost) from Google Fonts
+```
+Portfolio/
+├── manage.py
+├── vercel.json              # Vercel: every request goes to the Django WSGI app
+├── requirements.txt
+├── portfolio_site/          # Django project (settings, urls, wsgi)
+└── core/                    # the portfolio app
+    ├── content.py           # ALL the content (FR + EN) — edit this to update the site
+    ├── views.py
+    ├── templates/core/      # index.html + _t.html (bilingual text helper)
+    └── static/core/         # style.css, script.js
+```
+
+There is no database: the content lives in `core/content.py` as Python data. Each
+translated text is a `{"fr": ..., "en": ...}` pair built with the `t()` helper.
 
 ## How the translation system works
 
-There is no i18n library. Every translatable element exists twice in `index.html`,
-tagged with a `data-lang` attribute:
+Every translatable text is rendered twice, tagged with `data-lang`:
 
 ```html
 <span data-lang="fr">À propos</span>
 <span data-lang="en" hidden>About</span>
 ```
 
-`script.js` shows one language by toggling the `hidden` attribute on every `[data-lang]`
-element, updates `<html lang>`, and stores the choice in `localStorage` under the
-`langue-portfolio` key. French is the default on a first visit.
-
-**When adding content, always add both versions** — an element with only a `data-lang="fr"`
-variant disappears entirely when the visitor switches to English.
-
-## Project structure
-
-```
-Portfolio/
-├── index.html   # all the content, both languages
-├── style.css    # styles, animations, responsive breakpoints
-└── script.js    # sticky header, scroll reveal, mobile menu, language switch
-```
+`script.js` shows one language by toggling `hidden`, updates `<html lang>` and stores the
+choice in `localStorage` (`langue-portfolio`). French is the default.
 
 ## Running it locally
 
-No dependencies to install — open `index.html` in a browser, or serve the folder:
-
 ```bash
-python3 -m http.server 8000
-# → http://localhost:8000
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python manage.py runserver
+# → http://127.0.0.1:8000
 ```
 
-A local server is preferable to opening the file directly, since `localStorage`
-behaves more reliably over `http://` than over `file://`.
+## Deployment (Vercel)
 
-## Deployment
+`vercel.json` routes every request to `portfolio_site/wsgi.py` (`@vercel/python`).
+Static files are served by WhiteNoise straight from `core/static/`, so no build step
+is needed. Optional environment variables:
 
-Published with GitHub Pages from the `main` branch. Any push to `main` updates the
-live site within a minute or so.
+| Variable | Purpose |
+|----------|---------|
+| `DJANGO_SECRET_KEY` | Secret key (recommended) |
+| `DJANGO_ALLOWED_HOSTS` | Extra hosts, e.g. a custom domain (comma-separated) |
+| `DJANGO_DEBUG` | `1` to enable debug (never in production) |

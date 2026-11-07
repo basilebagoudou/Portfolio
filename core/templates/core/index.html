@@ -1,0 +1,256 @@
+{% load static %}<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basile Bagoudou | Portfolio</title>
+    <meta name="description" content="Basile Bagoudou — étudiant en L3 Génie Logiciel à l'IAI Togo, orienté data science (Python, pandas, scikit-learn) et développement web.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Portfolio</div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="#about"><span data-lang="fr">À propos</span><span data-lang="en" hidden>About</span></a></li>
+                    <li><a href="#parcours"><span data-lang="fr">Parcours</span><span data-lang="en" hidden>Journey</span></a></li>
+                    <li><a href="#skills"><span data-lang="fr">Compétences</span><span data-lang="en" hidden>Skills</span></a></li>
+                    <li><a href="#projects"><span data-lang="fr">Projets</span><span data-lang="en" hidden>Projects</span></a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="lang-toggle" role="group" aria-label="Changer de langue / Switch language">
+                    <button type="button" class="lang-option" data-lang-btn="fr">FR</button>
+                    <button type="button" class="lang-option" data-lang-btn="en">EN</button>
+                </div>
+                <button class="menu-btn" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <svg class="hero-chart" viewBox="0 0 600 200" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="0,170 60,150 120,158 180,120 240,128 300,90 360,100 420,62 480,70 540,38 600,30"/>
+            <g>
+                <circle cx="180" cy="120" r="4"/><circle cx="300" cy="90" r="4"/>
+                <circle cx="420" cy="62" r="4"/><circle cx="540" cy="38" r="4"/>
+            </g>
+        </svg>
+        <div class="hero-content">
+            <p class="hero-salut"><span data-lang="fr">Salut, moi c'est</span><span data-lang="en" hidden>Hi, I'm</span></p>
+            <h1>Basile BAGOUDOU</h1>
+            <h2>
+                <span data-lang="fr">Étudiant en L3 Génie Logiciel · orienté <em class="accent">Data Science</em></span>
+                <span data-lang="en" hidden>3rd-year Software Engineering student · focused on <em class="accent">Data Science</em></span>
+            </h2>
+            <p class="hero-desc" data-lang="fr">
+                J'apprends à transformer des données en décisions : nettoyage avec pandas,
+                visualisation, modèles de machine learning et leur évaluation. Avec une base
+                solide en développement web, je sais aussi construire et déployer les
+                applications qui les mettent entre les mains des utilisateurs.
+            </p>
+            <p class="hero-desc" data-lang="en" hidden>
+                I'm learning to turn data into decisions: cleaning with pandas, visualization,
+                machine learning models and how to evaluate them. With a solid web development
+                background, I can also build and ship the applications that put them in
+                users' hands.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary"><span data-lang="fr">Voir mes projets</span><span data-lang="en" hidden>View my projects</span></a>
+                <a href="#contact" class="btn-secondary"><span data-lang="fr">Me contacter</span><span data-lang="en" hidden>Contact me</span></a>
+            </div>
+            <p class="hero-now">
+                <span class="pulse" aria-hidden="true"></span>
+                <span data-lang="fr">En ce moment : GCI World 2026 (Université de Tokyo) · recherche de stage pour mai 2027</span>
+                <span data-lang="en" hidden>Right now: GCI World 2026 (University of Tokyo) · looking for an internship for May 2027</span>
+            </p>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span data-lang="fr">À propos de moi</span>
+                <span data-lang="en" hidden>About Me</span>
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-lang="fr">
+                        Étudiant en <strong>Licence 3 à l'IAI Togo</strong>, je me spécialise vers la
+                        <strong>data science</strong>. Je suis le programme <strong>GCI World 2026</strong> du
+                        Matsuo-Iwasawa Lab (Université de Tokyo) et <strong>CS50P</strong> de Harvard pour
+                        consolider mon Python, en parallèle de mes cours de statistiques et de bases de données.
+                    </p>
+                    <p data-lang="en" hidden>
+                        <strong>Third-year student at IAI Togo</strong>, I'm specializing in
+                        <strong>data science</strong>. I'm following the <strong>GCI World 2026</strong> program
+                        from the Matsuo-Iwasawa Lab (University of Tokyo) and Harvard's <strong>CS50P</strong> to
+                        strengthen my Python, alongside my statistics and database courses.
+                    </p>
+                    <p data-lang="fr">
+                        Mon stage au <strong>CENETI</strong>, où j'ai conçu et mis en production une plateforme
+                        Laravel complète, m'a appris à livrer de bout en bout. Je veux maintenant mettre ce
+                        savoir-faire au service des données. <strong>À la recherche d'un stage en data pour
+                        mai 2027.</strong>
+                    </p>
+                    <p data-lang="en" hidden>
+                        My internship at <strong>CENETI</strong>, where I designed and shipped a complete
+                        Laravel platform, taught me to deliver end-to-end. Now I want to bring that know-how
+                        to data. <strong>Looking for a data internship for May 2027.</strong>
+                    </p>
+                </div>
+                <div class="about-info">
+                    <ul>
+                        <li><span class="info-label" data-lang="fr">Nom</span><span class="info-label" data-lang="en" hidden>Name</span> Basile Bagoudou</li>
+                        <li><span class="info-label" data-lang="fr">Formation</span><span class="info-label" data-lang="en" hidden>Education</span> <span data-lang="fr">L3 Génie Logiciel</span><span data-lang="en" hidden>3rd-year Software Eng.</span></li>
+                        <li><span class="info-label" data-lang="fr">Université</span><span class="info-label" data-lang="en" hidden>University</span> <span data-lang="fr">Institut Africain d'Informatique</span><span data-lang="en" hidden>African Institute of Computer Science (IAI)</span></li>
+                        <li><span class="info-label">Focus</span> <span data-lang="fr">Data science, machine learning</span><span data-lang="en" hidden>Data science, machine learning</span></li>
+                        <li><span class="info-label">Email</span> basile2bagoudou@gmail.com</li>
+                        <li><span class="info-label" data-lang="fr">Disponible</span><span class="info-label" data-lang="en" hidden>Available</span> <span data-lang="fr">Stage dès mai 2027</span><span data-lang="en" hidden>Internship from May 2027</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours">
+        <div class="container">
+            <h2 class="section-title">
+                <span data-lang="fr">Parcours</span>
+                <span data-lang="en" hidden>Journey</span>
+            </h2>
+            <ol class="timeline">
+                {% for etape in parcours %}
+                <li class="timeline-item{% if etape.en_cours %} is-current{% endif %}">
+                    <div class="timeline-period">
+                        {% include "core/_t.html" with t=etape.periode only %}
+                        {% if etape.en_cours %}<span class="badge-live"><span data-lang="fr">en cours</span><span data-lang="en" hidden>ongoing</span></span>{% endif %}
+                    </div>
+                    <h3>{% include "core/_t.html" with t=etape.titre only %}</h3>
+                    <p class="timeline-place">{% include "core/_t.html" with t=etape.lieu only %}</p>
+                    <p class="timeline-text">{% include "core/_t.html" with t=etape.texte only %}</p>
+                </li>
+                {% endfor %}
+            </ol>
+
+            <div class="learning">
+                <h3 class="learning-title">
+                    <span data-lang="fr">Programme GCI World 2026 — modules suivis</span>
+                    <span data-lang="en" hidden>GCI World 2026 program — modules followed</span>
+                </h3>
+                <div class="learning-grid">
+                    {% for module in gci_modules %}
+                    <div class="learning-card">
+                        <span class="learning-num">{{ module.num|stringformat:"02d" }}</span>
+                        <span class="learning-name">{% include "core/_t.html" with t=module.titre only %}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span data-lang="fr">Compétences</span>
+                <span data-lang="en" hidden>Skills</span>
+            </h2>
+            <div class="skills-content">
+                {% for categorie in competences %}
+                <div class="skills-category{% if categorie.accent %} skills-category--accent{% endif %}">
+                    <h3>{% include "core/_t.html" with t=categorie.titre only %}</h3>
+                    <div class="skills-grid">
+                        {% for item in categorie.items %}
+                        <div class="skill-card">{% if item.fr %}{% include "core/_t.html" with t=item only %}{% else %}{{ item }}{% endif %}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span data-lang="fr">Mes Projets</span>
+                <span data-lang="en" hidden>My Projects</span>
+            </h2>
+            <div class="projects-grid">
+                {% for projet in projets %}
+                <article class="project-card{% if projet.data %} project-card--data{% endif %}">
+                    <div class="project-header">
+                        <h3>{% include "core/_t.html" with t=projet.titre only %}</h3>
+                        <span class="project-tag">{% include "core/_t.html" with t=projet.tag only %}</span>
+                    </div>
+                    <p class="project-desc">{% include "core/_t.html" with t=projet.texte only %}</p>
+                    <div class="project-tech">
+                        {% for tech in projet.tech %}<span>{{ tech }}</span>{% endfor %}
+                    </div>
+                    {% if projet.liens %}
+                    <div class="project-links">
+                        {% for lien in projet.liens %}
+                        <a href="{{ lien.url }}" target="_blank" rel="noopener" class="project-btn">{% include "core/_t.html" with t=lien.label only %}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span data-lang="fr">Me Contacter</span>
+                <span data-lang="en" hidden>Contact Me</span>
+            </h2>
+            <p class="contact-desc" data-lang="fr">
+                Vous avez une opportunité de stage en data pour mai 2027, ou un projet en tête ?
+                N'hésitez pas à me contacter !
+            </p>
+            <p class="contact-desc" data-lang="en" hidden>
+                Got a data internship opportunity for May 2027, or a project in mind?
+                Feel free to reach out!
+            </p>
+            <div class="contact-links">
+                <a href="mailto:basile2bagoudou@gmail.com" class="contact-card" aria-label="Email" title="basile2bagoudou@gmail.com">
+                    <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </a>
+                <a href="https://github.com/basilebagoudou" target="_blank" rel="noopener" class="contact-card" aria-label="GitHub" title="GitHub">
+                    <svg class="contact-icon contact-icon--brand" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/in/basile-bagoudou-a721a7335/" target="_blank" rel="noopener" class="contact-card" aria-label="LinkedIn" title="LinkedIn">
+                    <svg class="contact-icon contact-icon--brand" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p data-lang="fr">Conçu & développé avec Django par <strong>Basile Bagoudou</strong> — {{ annee }}</p>
+            <p data-lang="en" hidden>Designed & built with Django by <strong>Basile Bagoudou</strong> — {{ annee }}</p>
+            <p data-lang="fr">© {{ annee }} Basile Bagoudou. Tous droits réservés.</p>
+            <p data-lang="en" hidden>© {{ annee }} Basile Bagoudou. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="{% static 'core/js/script.js' %}"></script>
+</body>
+</html>
