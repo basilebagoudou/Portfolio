@@ -30,6 +30,7 @@
                     <li><a href="{{ ancre }}#skills"><span data-lang="fr">Compétences</span><span data-lang="en" hidden>Skills</span></a></li>
                     <li><a href="{{ ancre }}#parcours"><span data-lang="fr">Parcours</span><span data-lang="en" hidden>Journey</span></a></li>
                     <li><a href="{% url 'articles' %}"{% if page == 'articles' %} class="is-active" aria-current="page"{% endif %}>Articles</a></li>
+                    <li><a href="{% static 'core/docs/Basile_BAGOUDOU.pdf' %}" download="Basile_BAGOUDOU.pdf">CV</a></li>
                     <li><a href="{{ ancre }}#contact">Contact</a></li>
                 </ul>
                 <div class="lang-toggle" role="group" aria-label="Changer de langue / Switch language">
