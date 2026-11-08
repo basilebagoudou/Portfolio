@@ -19,7 +19,10 @@
 <body class="page-{{ page|default:'accueil' }}">
     <header>
         <nav>
-            <a href="{% url 'accueil' %}" class="logo">Je t'aime Mlle</a>
+            <a href="{% url 'accueil' %}" class="logo" aria-label="Basile Bagoudou — accueil">
+                <span class="logo-marque" aria-hidden="true" data-colonnes="{{ marque.colonnes }}">{% for f in marque.points %}<i{% if f %} class="fam-{{ f }}"{% endif %}></i>{% endfor %}</span>
+                <span class="logo-texte"><b>Basile</b><span><span data-lang="fr">Élève ingénieur en data</span><span data-lang="en" hidden>Data engineering student</span></span></span>
+            </a>
             <div class="nav-right">
                 <ul>
                     <li><a href="{{ ancre }}#about"><span data-lang="fr">Profil</span><span data-lang="en" hidden>Profile</span></a></li>
