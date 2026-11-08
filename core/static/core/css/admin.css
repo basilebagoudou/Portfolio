@@ -12,7 +12,7 @@
     --default-button-hover-bg: #9e4a2f;
 }
 textarea.md-editor {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: 13px;
     line-height: 1.6;
     width: 100%;

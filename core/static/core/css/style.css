@@ -23,12 +23,9 @@ html {
 body {
     background-color: var(--bg);
     color: var(--text-main);
-    /* Century Gothic est une police commerciale (Monotype), non
-       embarquable ici sans licence. 'Century Gothic' en tête profite de
-       l'installation native (très répandue sous Windows/macOS) ; Jost,
-       une police Google Fonts libre, est quasi identique visuellement et
-       sert de repli fidèle pour les autres systèmes. */
-    font-family: 'Century Gothic', CenturyGothic, 'Jost', sans-serif;
+    /* Archivo (texte) + IBM Plex Mono (éléments « code »), polices libres
+       Google Fonts. */
+    font-family: 'Archivo', system-ui, sans-serif;
     line-height: 1.6;
 }
 
@@ -830,7 +827,7 @@ section.visible {
     color: #e8e6e1;
     border-radius: 14px;
     box-shadow: 0 24px 60px rgba(31, 30, 29, 0.22);
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     font-size: 0.82rem;
     overflow: hidden;
     animation: monter 0.9s ease 0.2s both;
@@ -1063,7 +1060,7 @@ section.visible .pipeline-step {
 }
 
 .pipeline-num {
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     font-size: 0.75rem;
     color: var(--primary);
 }
@@ -1405,7 +1402,7 @@ section.visible .roc-curve {
 .contact-cta {
     display: inline-block;
     margin-bottom: 2.2rem;
-    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     font-size: 0.95rem;
 }
 
@@ -1613,7 +1610,7 @@ section.visible .signature span { transform: scaleX(1); }
     cursor: pointer;
 }
 .overview-count {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.8rem;
     color: var(--text-muted);
 }
@@ -1676,7 +1673,7 @@ section.visible .overview-block {
 .overview-legend .sw { margin-right: 0.35rem; }
 .overview-hint {
     margin-left: auto;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
 }
 
@@ -1704,7 +1701,7 @@ section.visible .overview-block {
 }
 section.visible .coverage-bar span { width: var(--w); }
 .coverage-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
     color: var(--text-muted);
     white-space: nowrap;
@@ -1782,7 +1779,7 @@ section.visible .coverage-bar span { width: var(--w); }
 }
 .field { display: flex; flex-direction: column; gap: 0.4rem; }
 .field-label {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1818,7 +1815,7 @@ section.visible .coverage-bar span { width: var(--w); }
 .form-status.is-ok { color: #2e7d5b; }
 .form-status.is-erreur, .form-status.is-invalide { color: #c0392b; }
 .form-note {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     color: var(--text-muted);
     margin: 0;
@@ -1842,7 +1839,7 @@ section.visible .coverage-bar span { width: var(--w); }
 .page { padding-top: 90px; min-height: 70vh; }
 .page-section { padding-top: 60px; }
 .kicker {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -1908,7 +1905,7 @@ nav ul li a.is-active { color: var(--primary); }
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.75rem;
     color: var(--text-muted);
 }
@@ -1921,7 +1918,7 @@ nav ul li a.is-active { color: var(--primary); }
     display: inline-flex;
     align-items: center;
     gap: 0.4rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.7rem;
     border: 1px solid var(--border);
     background: var(--bg);
@@ -1932,14 +1929,14 @@ nav ul li a.is-active { color: var(--primary); }
 
 .back-link {
     display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.8rem;
     color: var(--text-muted);
     margin-bottom: 1.6rem;
 }
 .back-link:hover { color: var(--primary-dark); }
 .article-byline {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.78rem;
     color: var(--text-muted);
     margin: -1rem 0 3rem;
@@ -1974,7 +1971,7 @@ nav ul li a.is-active { color: var(--primary); }
 .prose strong { font-weight: 700; }
 .prose a { color: var(--primary-dark); border-bottom: 1px solid currentColor; }
 .prose code {
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.85em;
     background: var(--primary-soft);
     color: var(--primary-dark);
@@ -2049,13 +2046,13 @@ nav ul li a.is-active { color: var(--primary); }
     border: 1px dashed #d4a72c;
     border-radius: 6px;
     padding: 0.2rem 0.6rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.72rem;
     margin-bottom: 0.8rem;
 }
 .rss-link {
     margin-top: 2rem;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 0.78rem;
 }
 .rss-link a { color: var(--primary-dark); border-bottom: 1px solid currentColor; }
