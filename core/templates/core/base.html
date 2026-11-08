@@ -13,7 +13,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23d97757'/><rect x='7' y='17' width='4' height='8' rx='1' fill='white'/><rect x='14' y='11' width='4' height='14' rx='1' fill='white'/><rect x='21' y='7' width='4' height='18' rx='1' fill='white'/></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
 </head>
 <body class="page-{{ page|default:'accueil' }}">
@@ -21,7 +21,7 @@
         <nav>
             <a href="{% url 'accueil' %}" class="logo" aria-label="Basile Bagoudou — accueil">
                 <span class="logo-marque" aria-hidden="true" data-colonnes="{{ marque.colonnes }}">{% for f in marque.points %}<i{% if f %} class="fam-{{ f }}"{% endif %}></i>{% endfor %}</span>
-                <span class="logo-texte"><b>Basile</b><span><span data-lang="fr">Élève ingénieur en data</span><span data-lang="en" hidden>Data engineering student</span></span></span>
+                <span class="logo-texte"><b>Bagoudou</b><span><span data-lang="fr">Élève ingénieur en data</span><span data-lang="en" hidden>Data engineering student</span></span></span>
             </a>
             <div class="nav-right">
                 <ul>

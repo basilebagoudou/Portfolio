@@ -123,10 +123,23 @@ nav {
 .logo-marque i.fam-bd { background: var(--fam-bd); }
 .logo-marque i.fam-ing { background: var(--fam-ing); }
 .logo:hover .logo-marque i[class] { transform: scale(1.15); }
-.logo-texte { display: flex; flex-direction: column; line-height: 1.1; }
-.logo-texte b { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.2px; }
-.logo-texte > span { font-size: 0.72rem; color: var(--text-muted, #6b6b6b); font-weight: 500; }
-@media (max-width: 560px) {
+.logo-texte { display: flex; flex-direction: column; gap: 0.3rem; }
+.logo-texte b {
+    font-weight: 900;
+    font-variation-settings: 'wdth' 118;
+    font-size: 1.3rem;
+    line-height: 1;
+    letter-spacing: -0.01em;
+}
+.logo-texte > span {
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    line-height: 1;
+}
+@media (max-width: 420px) {
     .logo-texte > span { display: none; }
 }
 
