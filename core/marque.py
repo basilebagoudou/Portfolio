@@ -25,3 +25,20 @@ def marque(request):
         famille = _famille_de(ligne["tech"])
         points += [famille if utilise else "" for utilise in ligne["cellules"]]
     return {"marque": {"points": points, "colonnes": len(projets)}}
+
+
+def _version_statique():
+    """Suffixe ?v= des CSS/JS : change à chaque déploiement (commit Vercel)
+    ou à chaque modification des fichiers en local, pour contourner le cache."""
+    import os
+    from pathlib import Path
+
+    sha = os.environ.get("VERCEL_GIT_COMMIT_SHA", "")[:8]
+    if sha:
+        return sha
+    dossier = Path(__file__).resolve().parent / "static" / "core"
+    return str(int(max(f.stat().st_mtime for f in dossier.rglob("*.*") if f.suffix in (".css", ".js"))))
+
+
+def version(request):
+    return {"version_statique": _version_statique()}

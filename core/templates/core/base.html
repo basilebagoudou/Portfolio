@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}?v={{ version_statique }}">
 </head>
 <body class="page-{{ page|default:'accueil' }}">
     <header>
@@ -68,6 +68,6 @@
             <p data-lang="en" hidden>© {{ annee }} · Designed & built by <strong>Basile Bagoudou</strong></p>
         </div>
     </footer>
-    <script src="{% static 'core/js/script.js' %}"></script>
+    <script src="{% static 'core/js/script.js' %}?v={{ version_statique }}"></script>
 </body>
 </html>
